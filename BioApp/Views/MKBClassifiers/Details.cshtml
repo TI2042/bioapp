@@ -1,0 +1,54 @@
+﻿@model BioApp.Models.MKBClassifier
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MKBClassifier</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.code)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.code)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.parentId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.parentId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.parentCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.parentCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nodeCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nodeCount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.additionalInfo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.additionalInfo)
+        </dd>
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" class="btn btn-primary"  asp-route-id="@Model.id" asp-route-patientId="@ViewBag.PatientId.id">Редактировать</a> |*@
+    <a asp-action="Index" class="btn btn-primary"  asp-route-patientId="@ViewBag.PatientId.id">Назад к списку</a>
+</div>

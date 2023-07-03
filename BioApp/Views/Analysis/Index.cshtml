@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BioApp.Models.Analysis>
+
+@{
+    ViewData["Title"] = "Список анализов";
+}
+
+<h1>Список анализов</h1>
+
+<p>
+    <a asp-action="Create">Добавить анализ</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.patient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.doctor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bioSample)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfAnalysis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.melanomaType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.patient.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doctor.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bioSample)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfAnalysis)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.melanomaType.name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Информация</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+                <a asp-controller="KITMarkers" asp-action="Index" asp-route-AnalysisId="@item.id">Маркеры</a>|
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

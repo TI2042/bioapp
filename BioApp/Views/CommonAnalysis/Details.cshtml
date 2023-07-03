@@ -1,0 +1,88 @@
+﻿@model BioApp.Models.CommonAnalysis
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CommonAnalysis</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.doctor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.doctor.name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.patient)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.patient.name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfBiosampleCollecting)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfBiosampleCollecting)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfAnalysis)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfAnalysis)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnalysisIsPerformedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnalysisIsPerformedBy)
+        </dd>
+
+        @foreach (var marker in ((List<AnalysisMarkerData>)ViewBag.Markers))
+        {
+            <dt class="col-sm-2">
+                @marker.analysisMarker.name
+            </dt>
+            @if (marker.analysisMarker.dataType == DataType.Double)
+            {
+                <dd class="col-sm-10">
+                    @marker.doubleValue
+                </dd>
+            }
+            @if (marker.analysisMarker.dataType == DataType.String)
+            {
+                <dd class="col-sm-10">
+                    @marker.stringValue
+                </dd>
+            }
+            @if (marker.analysisMarker.dataType == DataType.Bool)
+            {
+                @if (marker.boolValue == null)
+                {
+                    <dd class="col-sm-10">
+                        Не проверялось
+                    </dd>
+                }
+                @if (marker.boolValue == true)
+                {
+                    <dd class="col-sm-10 active"  >
+                        Выявлено
+                    </dd>
+                }
+                @if (marker.boolValue == false)
+                {
+                    <dd class="col-sm-10">
+                        Не выявлено
+                    </dd>
+                }
+            }
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.id">Редактировать</a> |
+    <a asp-action="Index" class="btn btn-primary" asp-route-patientId="@ViewBag.PatientId.id">Назад к списку</a>
+</div>

@@ -1,0 +1,49 @@
+﻿@model BioApp.Models.AnalysisMarker
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AnalysisMarker</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nameEn" class="control-label"></label>
+                <input asp-for="nameEn" class="form-control" />
+                <span asp-validation-for="nameEn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="measure" class="control-label"></label>
+                <input asp-for="measure" class="form-control" />
+                <span asp-validation-for="measure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="measureEn" class="control-label"></label>
+                <input asp-for="measureEn" class="form-control" />
+                <span asp-validation-for="measureEn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

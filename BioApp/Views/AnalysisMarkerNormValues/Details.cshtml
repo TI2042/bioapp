@@ -1,0 +1,42 @@
+﻿@model BioApp.Models.AnalysisMarkerNormValue
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AnalysisMarkerNormValue</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AnalysisMarker)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AnalysisMarker.id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PatientGroup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PatientGroup.id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.minValue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.minValue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.maxValue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.maxValue)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,12 @@
+﻿@model BioApp.Models.AnalysisMarker
+
+
+<div class="form-group">
+    <label class="control-label">@Model.name</label>
+    <input name="@Model.id" class="form-control" />
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,80 @@
+﻿@model BioApp.Models.Analysis
+
+@{
+    ViewData["Title"] = "Добавить анализ";
+}
+
+<h3>Добавить анализ</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="number" class="control-label"></label>
+                <input asp-for="number" class="form-control" />
+                <span asp-validation-for="number" class="text-danger"></span>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DoctorId" class="control-label"></label>
+                <select asp-for="DoctorId" class="form-control" asp-items="ViewBag.DoctorId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="bioSample" class="control-label"></label>
+                <select asp-for="bioSample" class="form-control" asp-items="@Html.GetEnumSelectList<Biosample>()"></select>
+                <span asp-validation-for="bioSample" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBiosampleCollecting" class="control-label"></label>
+                <input asp-for="DateOfBiosampleCollecting" class="form-control" />
+                <span asp-validation-for="DateOfBiosampleCollecting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfAnalysis" class="control-label"></label>
+                <input asp-for="DateOfAnalysis" class="form-control" />
+                <span asp-validation-for="DateOfAnalysis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientId" class="control-label"></label>
+                <select asp-for="PatientId" class="form-control" asp-items="ViewBag.PatientId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnalysisIsPerformedBy" class="control-label"></label>
+                <input asp-for="AnalysisIsPerformedBy" class="form-control" />
+                <span asp-validation-for="AnalysisIsPerformedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="preventiveCare" /> @Html.DisplayNameFor(model => model.preventiveCare)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="earlyMetastasis" /> @Html.DisplayNameFor(model => model.earlyMetastasis)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="lateMetastasis" /> @Html.DisplayNameFor(model => model.lateMetastasis)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="melanomaConfirmedEarlyStage" /> @Html.DisplayNameFor(model => model.melanomaConfirmedEarlyStage)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="MelanomaTypeId" class="control-label"></label>
+                <select asp-for="MelanomaTypeId" class="form-control" asp-items="ViewBag.MelanomaTypeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" /> | <a asp-action="Index">Назад к списку</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

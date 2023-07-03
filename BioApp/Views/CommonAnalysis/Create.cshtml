@@ -1,0 +1,92 @@
+﻿@model BioApp.Models.CommonAnalysis
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Добавить результат  @ViewBag.AnalysisType</h1>
+
+<h4>Пациент  - @ViewBag.PatientId.name</h4>
+<hr/>
+<form asp-action="Create">
+    <div class="row">
+        <div class="col">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="analysisType" class="control-label"></label>
+                <select asp-for="analysisType" class="form-control" asp-items="@Html.GetEnumSelectList<AnalysisType>()"></select>
+                <span asp-validation-for="analysisType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorId" class="control-label"></label>
+                <select asp-for="DoctorId" class="form-control" asp-items="ViewBag.DoctorId"></select>
+            </div>
+
+            <input type="hidden" asp-for="PatientId" class="form-control" asp-items="ViewBag.PatientId"></input>
+            <div class="form-group">
+                <label asp-for="DateOfBiosampleCollecting" class="control-label"></label>
+                <input asp-for="DateOfBiosampleCollecting" class="form-control" />
+                <span asp-validation-for="DateOfBiosampleCollecting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfAnalysis" class="control-label"></label>
+                <input asp-for="DateOfAnalysis" class="form-control" />
+                <span asp-validation-for="DateOfAnalysis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnalysisIsPerformedBy" class="control-label"></label>
+                <input asp-for="AnalysisIsPerformedBy" class="form-control" />
+                <span asp-validation-for="AnalysisIsPerformedBy" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col">
+            @foreach (var marker in ((List<AnalysisMarker>)ViewBag.Markers))
+            {
+                @if (marker.dataType == DataType.String)
+                {
+                    <div class="form-group">
+                        <label class="control-label">@marker.name</label>
+                        <input name="@marker.id" class="form-control" />
+                    </div>
+                }
+                @if (marker.dataType == DataType.Double)
+                {
+                    <div class="form-group">
+                        <label class="control-label">@marker.name</label>
+                        <input name="@marker.id" class="form-control" />
+                    </div>
+                }
+                @if (marker.dataType == DataType.Bool)
+                {
+                    <div class="form-group">
+                        <label class="control-label">@marker.name</label>
+                        <select name="@marker.id" class="form-control">
+                            <option selected>Не проводилось</option>
+                            <option>Выявлено</option>
+                            <option>Не выявлено</option>
+                        </select>
+                    </div>
+                }
+            }
+            
+        </div>
+
+    </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-primary" asp-route-patientId="@ViewBag.PatientId.id">Назад к списку</a>
+                </div>
+            </div>
+        </div>
+
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

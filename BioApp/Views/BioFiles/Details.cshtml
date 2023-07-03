@@ -1,0 +1,47 @@
+﻿@model BioApp.Models.BioFile
+
+@{
+    ViewData["Title"] = "Информация о файле";
+}
+
+<h3>Информация о файле @Model.name</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.path)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.path)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.createDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.createDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fileType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fileType.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.patient)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.patient.name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Редактировать</a> |
+    <a asp-controller="BioFiles" asp-action="Index" asp-route-PatientId="@Model.PatientId">Назад к списку</a>
+</div>

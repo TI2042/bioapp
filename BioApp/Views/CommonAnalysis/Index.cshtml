@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BioApp.Models.CommonAnalysis>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>@*Список анализов пациента @ViewBag.PatientId.name*@</h1>
+
+<p>
+    <a asp-action="Create" asp-route-patientId="@ViewBag.PatientId.id" asp-route-analysisType="@AnalysisType.CommonBloodAnalysis" class="btn btn-primary">Добавить анализ крови</a>
+    <a asp-action="Create" asp-route-patientId="@ViewBag.PatientId.id" asp-route-analysisType="@AnalysisType.GeneticAnalysis"class="btn btn-primary">Добавить генетический анализ</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.analysisType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBiosampleCollecting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfAnalysis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnalysisIsPerformedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.analysisType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBiosampleCollecting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfAnalysis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnalysisIsPerformedBy)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Просмотреть</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

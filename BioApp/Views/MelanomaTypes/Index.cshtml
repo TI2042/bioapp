@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BioApp.Models.MelanomaType>
+
+@{
+    ViewData["Title"] = "Список типов меланомы";
+}
+
+<h1>Список типов меланомы</h1>
+
+<p>
+    <a asp-action="Create">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nameEng)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nameLat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameEng)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nameLat)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Информация</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,143 @@
+﻿@model BioApp.Models.Patient
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Добавить пациента</h1>
+
+<hr />
+
+<form asp-action="Create">
+    <div class="row">
+        <div class="col">
+            <b>Общие данные</b>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="passportNumber" class="control-label"></label>
+                <input asp-for="passportNumber" class="form-control" />
+                <span asp-validation-for="passportNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="INN" class="control-label"></label>
+                <input asp-for="INN" class="form-control" />
+                <span asp-validation-for="INN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OMSNumber" class="control-label"></label>
+                <input asp-for="OMSNumber" class="form-control" />
+                <span asp-validation-for="OMSNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="birthDate" class="control-label"></label>
+                <input asp-for="birthDate" class="form-control" />
+                <span asp-validation-for="birthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="gender" class="control-label"></label>
+                <select asp-for="gender" class="form-control" asp-items="@Html.GetEnumSelectList<Gender>()"></select>
+                <span asp-validation-for="gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="registrationDate" class="control-label"></label>
+                <input asp-for="registrationDate" class="form-control" />
+                <span asp-validation-for="registrationDate" class="text-danger"></span>
+            </div>
+
+            <b>Экзогенные факторы</b>
+            <div class="form-group">
+                <label asp-for="burns" class="control-label"></label>
+                <select asp-for="burns" class="form-control" asp-items="@Html.GetEnumSelectList<Burns>()"></select>
+                <span asp-validation-for="burns" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ageGroup" class="control-label"></label>
+                <select asp-for="ageGroup" class="form-control" asp-items="@Html.GetEnumSelectList<AgeGroup>()"></select>
+                <span asp-validation-for="ageGroup" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="immuneSystemDiseases" class="control-label"></label>
+                <input type="checkbox" asp-for="immuneSystemDiseases" class="form-control" />
+                <span asp-validation-for="immuneSystemDiseases" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="skinType" class="control-label"></label>
+                <select asp-for="skinType" class="form-control" asp-items="@Html.GetEnumSelectList<SkinType>()"></select>
+                <span asp-validation-for="skinType" class="text-danger"></span>
+            </div>
+            <img src="~/img/fitz.png" background-color="inherit" width="600" height="150" />
+            <div class="form-group">
+                <label asp-for="eyeType" class="control-label"></label>
+                <select asp-for="eyeType" class="form-control" asp-items="@Html.GetEnumSelectList<EyeType>()"></select>
+                <span asp-validation-for="eyeType" class="text-danger"></span>
+            </div>
+            <img src="~/img/eye.png" background-color="inherit" width="600" height="450" />
+            <div class="form-group">
+                <label asp-for="hairType" class="control-label"></label>
+                <select asp-for="hairType" class="form-control" asp-items="@Html.GetEnumSelectList<HairType>()"></select>
+                <span asp-validation-for="hairType" class="text-danger"></span>
+            </div>
+            <img src="~/img/hair.png" background-color="inherit" width="600" height="150" />
+
+        </div>
+       
+        <div class="col">
+            <b>Эндогенные факторы</b>
+            <div class="form-group">
+                <label asp-for="previousMelanoma" class="control-label"></label>
+                <input type="checkbox" asp-for="previousMelanoma" class="form-control" />
+                <span asp-validation-for="previousMelanoma" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="previousMelanomaInFamily" class="control-label"></label>
+                <input type="checkbox" asp-for="previousMelanomaInFamily" class="form-control" />
+                <span asp-validation-for="previousMelanomaInFamily" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PresenceOfFreckles" class="control-label"></label>
+                <input type="checkbox" asp-for="PresenceOfFreckles" class="form-control" />
+                <span asp-validation-for="PresenceOfFreckles" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="HormonalChanges" class="control-label"></label>
+                <input type="checkbox" asp-for="HormonalChanges" class="form-control" />
+                <span asp-validation-for="HormonalChanges" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ObligateFormsOfPrecancer" class="control-label"></label>
+                <input type="checkbox" asp-for="ObligateFormsOfPrecancer" class="form-control" />
+                <span asp-validation-for="ObligateFormsOfPrecancer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nevusType" class="control-label"></label>
+                <select asp-for="nevusType" class="form-control" asp-items="@Html.GetEnumSelectList<NevusType>()"></select>
+                <span asp-validation-for="nevusType" class="text-danger"></span>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="row">
+            <div class="col">
+                           <div class="form-group">
+                    <input type="submit" value="Добавить" class="btn btn-primary" /> | <a asp-action="Index" class="btn btn-primary">Назад к списку</a>
+                </div>
+            </div>
+        </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

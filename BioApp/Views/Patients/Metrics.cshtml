@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <p>Асимметрия - @ViewBag.Asymmetry </p>
+    <p>Граница - @ViewBag.Border </p>
+    <p>Цвет - @ViewBag.Color </p>
+    <p>Размер - @ViewBag.Diameter </p>
+
+    <form method="post" enctype="multipart/form-data" asp-controller="Patients" asp-action="Metrics">
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Upload one or more files using this form:</p>
+                <input type="file" name="files" multiple />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Upload" />
+            </div>
+        </div>
+    </form>
+}

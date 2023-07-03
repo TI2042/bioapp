@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BioApp.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Список врачей";
+}
+
+<h1>Список врачей</h1>
+
+<p>
+    <a asp-action="Create">Добавить врача</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.doctorSpecialization)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.doctorSpecialization.name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Информация</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

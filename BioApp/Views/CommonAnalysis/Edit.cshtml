@@ -1,0 +1,113 @@
+﻿@model BioApp.Models.CommonAnalysis
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Редактировать данные анализа</h1>
+
+<hr />
+
+
+<form asp-action="Edit">
+    <div class="row">
+        <div class="col">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="analysisType" class="control-label"></label>
+                <select asp-for="analysisType" class="form-control" asp-items="@Html.GetEnumSelectList<AnalysisType>()"></select>
+                <span asp-validation-for="analysisType" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="DoctorId" class="control-label"></label>
+                <select asp-for="DoctorId" class="form-control" asp-items="ViewBag.DoctorId"></select>
+                <span asp-validation-for="DoctorId" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="PatientId" class="control-label"></label>
+                <select asp-for="PatientId" class="form-control" asp-items="ViewBag.PatientId"></select>
+                <span asp-validation-for="PatientId" class="text-danger"></span>
+            </div>*@
+            <input type="hidden" asp-for="PatientId" class="form-control" asp-items="ViewBag.PatientId"></input>
+            <div class="form-group">
+                <label asp-for="DateOfBiosampleCollecting" class="control-label"></label>
+                <input asp-for="DateOfBiosampleCollecting" type="date" value="@Model.DateOfBiosampleCollecting.ToString("yyyy-MM-dd")" class="form-control" />
+                <span asp-validation-for="DateOfBiosampleCollecting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfAnalysis" class="control-label"></label>
+                @*<input asp-for="DateOfAnalysis" type="date" asp-format="{0:dd.MM.yyyy}" class="form-control" />*@
+                <input asp-for="DateOfAnalysis" type="date" class="form-control" value="@Model.DateOfAnalysis.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="DateOfAnalysis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnalysisIsPerformedBy" class="control-label"></label>
+                <input asp-for="AnalysisIsPerformedBy" class="form-control" />
+                <span asp-validation-for="AnalysisIsPerformedBy" class="text-danger"></span>
+
+            </div>
+
+        </div>
+        <div class="col">
+            @foreach (var marker in ((List<AnalysisMarkerData>)ViewBag.Markers))
+            {
+            <div class="form-group">
+                <label class="control-label">@marker.analysisMarker.name</label>
+
+                @if (marker.analysisMarker.dataType == DataType.String)
+                {
+                    <input name="@marker.id" class="form-control" value="@marker.stringValue" />
+                }
+                @if (marker.analysisMarker.dataType == DataType.Double)
+                {
+                     <input name="@marker.id" class="form-control" value="@marker.doubleValue" />                  
+                }
+                @if (marker.analysisMarker.dataType == DataType.Bool)
+                {
+            <select name="@marker.id" class="form-control" value="@marker.boolValue">
+                @if (marker.boolValue == null)
+                {
+                    <option selected>Не проводилось</option>
+                    <option>Выявлено</option>
+                    <option>Не выявлено</option>
+                }
+                @if (marker.boolValue == true)
+                {
+                <option>Не проводилось</option>
+                    <option selected>Выявлено</option>
+                    <option>Не выявлено</option>
+                }
+                @if (marker.boolValue == false)
+                {
+                    <option>Не проводилось</option>
+                    <option>Выявлено</option>
+                    <option selected>Не выявлено</option>
+                }
+
+            </select>
+                  
+                }
+            </div>
+                    }
+                </div>
+    </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <input type="submit" value="Сохранить" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-primary" asp-route-patientId="@ViewBag.PatientId.id">Назад к списку</a>
+                </div>
+            </div>
+        </div>
+        
+   
+</form>
+   
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

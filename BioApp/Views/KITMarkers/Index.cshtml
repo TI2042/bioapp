@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BioApp.Models.KITMarker>
+
+@{
+    ViewData["Title"] = "Список маркеров";
+}
+
+<h1>Список маркеров</h1>
+
+<p>
+    <a asp-action="Create">Добавить маркер</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.analysis.AnalisString)
+            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.analysis.bioSample)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type.name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.analysis.AnalisString)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.analysis.bioSample)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type.name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Редактировать</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Информация</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

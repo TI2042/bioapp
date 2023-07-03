@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BioApp.Models.BioFile>
+
+@{
+    ViewData["Title"] = "Список";
+}
+
+<h1>Список файлов</h1>
+
+<p>
+    <a asp-action="Create" asp-route-PatientId="@ViewData["PatientId"]">Добавить</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.createDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fileType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.patient)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.createDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fileType.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.patient.name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Редактировать</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Информация</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Patients" asp-action="Details" asp-route-Id="@ViewData["PatientId"]">Назад к пациенту</a>

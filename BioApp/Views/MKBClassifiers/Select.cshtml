@@ -1,0 +1,87 @@
+﻿<h4>Пациент  - @ViewBag.PatientId.name</h4>
+<p>Вероятность меланомы(Группа заолеваний С43) исходя из генетических и общих анализов составляет - @ViewBag.Risk </p>
+<div id="jstree">
+</div>
+@using (Html.BeginForm("Select", "MKBClassifers", FormMethod.Post))
+{
+
+
+    <input type="hidden" name="selectedItems" id="selectedItems" />
+    <input type="submit" value="Присвоить" asp-action="Select"  asp-route-patientId="@ViewBag.PatientId.id" class="btn btn-primary" />
+}
+@section scripts{
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script type="text/javascript">
+
+
+        $(function () {
+            $('#jstree').on('changed.jstree', function (e, data) {
+                var i, j;
+                var postedItems = [];
+                for(i = 0, j = data.selected.length; i < j; i++) {
+
+                    //Fetch the Id.
+                    var id = data.selected[i];
+
+                    //Remove the ParentId.
+                    if(id.indexOf('-') != -1){
+                        id = id.split("-")[1];
+                    }
+
+                    //Add the Node to the JSON Array.
+                    postedItems.push({
+                        text: data.instance.get_node(data.selected[i]).text,
+                        id: id,
+                        parent: data.node.parents[0]
+                    });
+                }
+
+                //Serialize the JSON Array and save in HiddenField.
+                $('#selectedItems').val(JSON.stringify(postedItems));
+            }).jstree({
+                "core": {
+                    "themes": {
+                        "variant": "default",
+                        "dots": false,
+                        "icons": false
+
+                    },
+                    "data": @Html.Raw(ViewBag.Json)
+                    },
+                "checkbox": {
+                    "keep_selected_style": false
+                },
+                "plugins": ["wholerow", "checkbox"],
+            });
+        });
+    </script>
+}
+
+@*<div class="row">
+                <div class="col-md-4">
+                    <ol class="select select-list select-many">
+                        @foreach (var marker in ((List<MKBClassifier>)ViewBag.Classifiers))
+                        {
+
+                            <li>
+                                <div class="form-group">
+                                    <label class="control-label">@marker.code @marker.name</label>
+                                </div>
+                            </li>
+
+
+                        }
+                    </ol>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <a asp-action="Save" class="btn btn-primary" asp-route-patientId="@ViewBag.PatientId.id">Добавить</a>
+                                <a asp-action="Index" class="btn btn-primary" asp-route-patientId="@ViewBag.PatientId.id">Назад</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    }*@

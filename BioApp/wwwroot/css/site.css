@@ -1,5 +1,8 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&display=swap');
+
 .jstree-default .jstree-node, .jstree-default .jstree-icon {
     background-image: '~/img/diagnosis.png';
 }
@@ -90,7 +93,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    background: url(background.png) no-repeat center center;
+    background: url(./background2.webp);
     margin-bottom: 60px;
     min-height: 100%;
     background-size: cover;
@@ -102,4 +105,15 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
-
+.app_name {
+    font-family: 'Agdasima', sans-serif;
+    color: white;
+    text-shadow:0 0px 5px black;
+    text-align: left;
+    padding: 10px;
+    font-size: 150px;
+}
+.name_block {
+ display: flex;
+ justify-content:flex-start;
+}

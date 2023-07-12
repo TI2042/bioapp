@@ -217,5 +217,7 @@ namespace BioApp.Controllers
         {
             return _context.Patients.Any(e => e.id == id);
         }
+
+       
     }
 }

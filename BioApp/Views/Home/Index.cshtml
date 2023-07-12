@@ -1,9 +1,16 @@
-﻿@{
+﻿@model IEnumerable<BioApp.Models.Patient>
+
+@{
     ViewData["Title"] = "SkinSafe";
 }
 <div class="name_block"> 
 <h1 class="app_name">SkinSafe</h1>
     <!-- <button onclick="window.location.href='http://vk.com'">vk.com</button>
     <a href="./img/analysis.png">image</a> -->
+</div>
+
+<div class="navigation_block">
+    @Html.ActionLink("Перейти в NavigationPage","NavigationPage")
+
 </div>
 

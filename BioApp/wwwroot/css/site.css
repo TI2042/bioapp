@@ -93,7 +93,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    background: url(./background2.webp);
+    background: url(./background2.jpg);
     margin-bottom: 60px;
     min-height: 100%;
     background-size: cover;

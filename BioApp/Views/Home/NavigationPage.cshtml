@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "NavigationPage";
-
+    var patID = "";
 }
 
 <div class="name_block">
@@ -14,9 +14,10 @@
 
 
 
-<a asp-action="Edit" asp-controller="Patients" asp-route-id=be42304d-298b-49e5-426a-08db7aca8333>
-    <img alt="Qries" src="~/img/edit.png" background-color="inherit" width="30" height="30" />
-</a>
+
+
+<a asp-action="Create" asp-controller="Patients"  class="btn btn-primary">Добавить пациента</a>
+
 <a asp-action="Index" asp-controller="CommonAnalysis" asp-route-PatientId="be42304d-298b-49e5-426a-08db7aca8333">
     <img alt="Qries" src="~/img/analysis.png" background-color="inherit" width="30" height="30" />
 </a>

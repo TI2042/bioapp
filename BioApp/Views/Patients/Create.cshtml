@@ -8,9 +8,13 @@
 
 <hr />
 
+<button onclick="OpenCommonData()">Общие данные</button>
+<button onclick="OpenExogenousFactors()">Экзогенные факторы</button>
+<button onclick="OpenEndogenousFactors()">Экзогенные факторы</button>
+
 <form asp-action="Create">
     <div class="row">
-        <div class="col">
+        <div class="col" id="CommonData" style="display:block">
             <b>Общие данные</b>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -48,7 +52,9 @@
                 <input asp-for="registrationDate" class="form-control" />
                 <span asp-validation-for="registrationDate" class="text-danger"></span>
             </div>
+        </div>
 
+        <div class="col" id="ExogenousFactors" style="display:none">
             <b>Экзогенные факторы</b>
             <div class="form-group">
                 <label asp-for="burns" class="control-label"></label>
@@ -87,8 +93,9 @@
             <img src="~/img/hair.png" background-color="inherit" width="600" height="150" />
 
         </div>
+
        
-        <div class="col">
+        <div class="col" id="EndogenousFactors" style="display:none">
             <b>Эндогенные факторы</b>
             <div class="form-group">
                 <label asp-for="previousMelanoma" class="control-label"></label>
@@ -125,19 +132,66 @@
                 <span asp-validation-for="nevusType" class="text-danger"></span>
             </div>
 
-
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <input type="submit" value="Добавить" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
     <div class="row">
             <div class="col">
-                           <div class="form-group">
-                    <input type="submit" value="Добавить" class="btn btn-primary" /> | <a asp-action="Index" class="btn btn-primary">Назад к списку</a>
+                <div class="form-group">
+                    <a asp-action="Index" class="btn btn-primary">Назад к списку</a>
                 </div>
             </div>
-        </div>
+     </div>
 </form>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    function OpenCommonData() 
+    {
+        var CommonData = document.getElementById("CommonData");
+        var ExogenousFactors = document.getElementById("ExogenousFactors");
+        var EndogenousFactors = document.getElementById("EndogenousFactors");
+        if ((window.getComputedStyle(CommonData).display === "none") && ((window.getComputedStyle(ExogenousFactors).display === "block") || (window.getComputedStyle(EndogenousFactors).display === "block"))) 
+        {
+            CommonData.style.display = "block";
+            ExogenousFactors.style.display = "none";
+            EndogenousFactors.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function OpenExogenousFactors() {
+        var CommonData = document.getElementById("CommonData");
+        var ExogenousFactors = document.getElementById("ExogenousFactors");
+        var EndogenousFactors = document.getElementById("EndogenousFactors");
+        if ((window.getComputedStyle(ExogenousFactors).display === "none") && ((window.getComputedStyle(CommonData).display === "block") || (window.getComputedStyle(EndogenousFactors).display === "block"))) {
+            ExogenousFactors.style.display = "block";
+            CommonData.style.display = "none";
+            EndogenousFactors.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function OpenEndogenousFactors() {
+        var CommonData = document.getElementById("CommonData");
+        var ExogenousFactors = document.getElementById("ExogenousFactors");
+        var EndogenousFactors = document.getElementById("EndogenousFactors");
+        if ((window.getComputedStyle(EndogenousFactors).display === "none") && ((window.getComputedStyle(ExogenousFactors).display === "block") || (window.getComputedStyle(CommonData).display === "block"))) {
+            EndogenousFactors.style.display = "block";
+            ExogenousFactors.style.display = "none";
+            CommonData.style.display = "none";
+        }
+    }
+</script>

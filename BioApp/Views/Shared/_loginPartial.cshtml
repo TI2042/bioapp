@@ -9,59 +9,52 @@
         <li class="nav-item">
             <a id="manage" class="nav-link text-dark" asp-area="Identity" title="Manage">@UserManager.GetUserName(User)</a>
         </li>
+        
+        <li class="nav-item">
+            <b>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">Пациенты</a>
+            </b>
+        </li>
         <li class="nav-item">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Выйти</button>
             </form>
         </li>
-        <li class="nav-item">
-            <b>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index"></a>
-            </b>
-        </li>
-
-        <li class="nav-item">
-            <b>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Index">Пациенты</a>
-            </b>
-
-
-        </li>
-        <li class="nav-item">
-            <b>
-                <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Metrics">Протестить метрики</a>
-            </b>
-        </li>
-            @*<li class="nav-item">
-                    <b>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Analysis" asp-action="Index">Анализы</a>
-                    </b>
-                </li>
-                <li class="nav-item">
-                    <b>
-                        <a class="nav-link text-dark" asp-area="" asp-controller="KITMarkers" asp-action="Index">Маркеры</a>
-                    </b>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Врачи</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="MelanomaTypes" asp-action="Index">Типы меланомы</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="DoctorSpecializations" asp-action="Index">Специальности врачей</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="KITTypes" asp-action="Index">Типы маркеров</a>
-                </li>*@
-            }
-            else
-            {
+        @*        <li class="nav-item">
+    <b>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Patients" asp-action="Metrics">Протестить метрики</a>
+    </b>
+    </li>*@
+        @*<li class="nav-item">
+    <b>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Analysis" asp-action="Index">Анализы</a>
+    </b>
+    </li>
+    <li class="nav-item">
+    <b>
+    <a class="nav-link text-dark" asp-area="" asp-controller="KITMarkers" asp-action="Index">Маркеры</a>
+    </b>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Врачи</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="MelanomaTypes" asp-action="Index">Типы меланомы</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="DoctorSpecializations" asp-action="Index">Специальности врачей</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="KITTypes" asp-action="Index">Типы маркеров</a>
+    </li>*@
+    }
+    else
+    {
         <li class="nav-item">
             <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Зарегистрироваться</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Войти</a>
+            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Url.Action("NavigationPage", "Home", new { area = "" })">Войти</a>
         </li>
-        }
-    </ul>
+    }
+</ul>

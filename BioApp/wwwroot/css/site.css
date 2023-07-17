@@ -10,10 +10,11 @@ for details on configuring this project to bundle and minify static web assets. 
 dd.active {
     color: rgb(220, 20, 60);
 }
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 
@@ -21,16 +22,18 @@ a.navbar-brand {
     border: 3px solid;
     border-color: black;
 }
+
 th {
-    color: rgb(200, 215, 182);
+    color: rgb(30, 131, 145);
     background-color: rgb(88, 98, 125);
 }
+
 h1 {
-    color: rgb(200, 215, 182);
+    color: rgb(30, 131, 145);
 }
 
 h2 {
-    color: rgb(200, 215, 182);
+    color: rgb(30, 131, 145);
 }
 
 table tr:nth-child(odd) td {
@@ -42,53 +45,62 @@ table tr:nth-child(even) td {
 }
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: rgb(30, 131, 145);
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: rgb(30, 131, 145);
+    border-color: rgb(25, 108, 120);
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: rgb(30, 131, 145);
+    border-color: rgb(25, 108, 120);
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
+.navbar-nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 0 0 0 auto;
+}
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
     position: relative;
-    min-height: 100%;  
+    min-height: 100%;
 }
 
 body {
@@ -98,29 +110,35 @@ body {
     min-height: 100%;
     background-size: cover;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
+
 .app_name {
     font-family: 'Agdasima', sans-serif;
     color: white;
-    text-shadow:0 0px 5px black;
+    text-shadow: 0 0px 5px black;
     text-align: left;
     padding: 10px;
     font-size: 150px;
 }
+
 .name_block {
-    border: 4px solid red;
     display: flex;
     justify-content: space-around;
     margin-top: 200px;
 }
 
-.btn-group {
-    float: left;
-    border: 1px solid green;
-}
+    .name_block .btn {
+        background-color: rgb(255, 255, 255,0.7);
+        cursor: pointer;
+        border-radius: 10px;
+    }
+        .name_block .btn:hover {
+            background-color: powderblue;
+        }

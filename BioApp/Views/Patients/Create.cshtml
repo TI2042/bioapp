@@ -4,19 +4,29 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Добавить пациента</h1>
+<h1>Персональные и клинические данные пациента</h1>
 
 <hr />
 
 <button class="btn btn-primary" onclick="OpenCommonData()">Общие данные</button>
-<button class="btn btn-primary" onclick="OpenExogenousFactors()">Эндогенные факторы</button>
-<button class="btn btn-primary" onclick="OpenEndogenousFactors()">Экзогенные факторы</button>
+<button class="btn btn-primary" onclick="OpenExogenousFactors()">Эндогенные факторы риска</button>
+<button class="btn btn-primary" onclick="OpenEndogenousFactors()">Экзогенные факторы риска</button>
 
 <form asp-action="Create">
     <div class="row">
         <div class="col" id="CommonData" style="display:block">
             <b>Общие данные</b>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdNumber" class="control-label"></label>
+                <input asp-for="IdNumber" class="form-control" />
+                <span asp-validation-for="IdNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="passportNumber" class="control-label"></label>
                 <input asp-for="passportNumber" class="form-control" />
@@ -28,40 +38,53 @@
                 <span asp-validation-for="INN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="OMSNumber" class="control-label"></label>
-                <input asp-for="OMSNumber" class="form-control" />
-                <span asp-validation-for="OMSNumber" class="text-danger"></span>
+                <label asp-for="SNILS" class="control-label"></label>
+                <input asp-for="SNILS" class="form-control" />
+                <span asp-validation-for="SNILS" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="birthDate" class="control-label"></label>
                 <input asp-for="birthDate" class="form-control" />
                 <span asp-validation-for="birthDate" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="PlaceOfBirth" class="control-label"></label>
+                <input asp-for="PlaceOfBirth" class="form-control" />
+                <span asp-validation-for="PlaceOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PlaceOfResidence" class="control-label"></label>
+                <input asp-for="PlaceOfResidence" class="form-control" />
+                <span asp-validation-for="PlaceOfResidence" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="gender" class="control-label"></label>
                 <select asp-for="gender" class="form-control" asp-items="@Html.GetEnumSelectList<Gender>()"></select>
                 <span asp-validation-for="gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="registrationDate" class="control-label"></label>
-                <input asp-for="registrationDate" class="form-control" />
-                <span asp-validation-for="registrationDate" class="text-danger"></span>
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
             </div>
         </div>
 
         <div class="col" id="ExogenousFactors" style="display:none">
-            <b>Экзогенные факторы</b>
+            <b>Экзогенные факторы риска</b>
             <div class="form-group">
                 <label asp-for="burns" class="control-label"></label>
                 <select asp-for="burns" class="form-control" asp-items="@Html.GetEnumSelectList<Burns>()"></select>
                 <span asp-validation-for="burns" class="text-danger"></span>
             </div>
+        </div>
 
+       
+        <div class="col" id="EndogenousFactors" style="display:none">
+            <b>Эндогенные факторы</b>
             <div class="form-group">
                 <label asp-for="ageGroup" class="control-label"></label>
                 <select asp-for="ageGroup" class="form-control" asp-items="@Html.GetEnumSelectList<AgeGroup>()"></select>
@@ -91,12 +114,6 @@
                 <span asp-validation-for="hairType" class="text-danger"></span>
             </div>
             <img src="~/img/hair.png" background-color="inherit" width="600" height="150" />
-
-        </div>
-
-       
-        <div class="col" id="EndogenousFactors" style="display:none">
-            <b>Эндогенные факторы</b>
             <div class="form-group">
                 <label asp-for="previousMelanoma" class="control-label"></label>
                 <input type="checkbox" asp-for="previousMelanoma" class="form-control" />
@@ -145,7 +162,7 @@
     <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <a asp-action="Index" class="btn btn-primary">Назад к списку</a>
+                    <a asp-action="Index" class="btn btn-primary">Далее</a>
                 </div>
             </div>
      </div>

@@ -136,17 +136,17 @@ namespace BioApp.Models
     }
     public enum Burns
     {
-        [Description("Отсутствуют")]
-        [Display(Name = "Отсутствуют")]
+        [Description("I степень – поражение самых поверхностных слоев кожи, проявляется в основном покраснением")]
+        [Display(Name = "I степень – поражение самых поверхностных слоев кожи, проявляется в основном покраснением")]
         no,
-        [Description("Легкая стадия")]
-        [Display(Name = "Легкая стадия")]
+        [Description("II степень – поражение кожи на всю ее глубину, с образованием волдырей с серозной или кровянистой жидкостью, появлением отеков, боли")]
+        [Display(Name = "II степень – поражение кожи на всю ее глубину, с образованием волдырей с серозной или кровянистой жидкостью, появлением отеков, боли")]
         easy,
-        [Description("Средняя стадия")]
-        [Display(Name = "Средняя стадия")]
+        [Description("III степень – некроз верхних или глубоких слоев кожи, вплоть до подкожно-жировой клетчатки, с образованием глубокой раны и волдырей")]
+        [Display(Name = "III степень – некроз верхних или глубоких слоев кожи, вплоть до подкожно-жировой клетчатки, с образованием глубокой раны и волдырей")]
         middle,
-        [Description("Тяжелая стадия")]
-        [Display(Name = "Тяжелая стадия")]
+        [Description("IV степень – некроз тканей на большую глубину, включая мышцы и кости, с их гибелью")]
+        [Display(Name = "IV степень – некроз тканей на большую глубину, включая мышцы и кости, с их гибелью")]
         hard,
     }
 
@@ -174,7 +174,22 @@ namespace BioApp.Models
         [Display(Name = "Номер паспорта пациента")]
         [RegularExpression(@"^[0-9]{10,10}$", ErrorMessage = "Ошибка ввода. Необходимо ввести 10 цифр")]
         public string passportNumber { get; set; }
-        
+
+        [Display(Name = "Идентификационный номер")]
+        public string IdNumber { get; set; }
+
+        [Display(Name = "СНИЛС")]
+        [RegularExpression(@"^\d{3}-\d{3}-\d{3}-\d{2}$", ErrorMessage = "Ошибка ввода.")]
+        public string SNILS { get; set; }
+
+        [Display(Name = "Место рождения")]
+        public string PlaceOfBirth { get; set; }
+
+        [Display(Name = "Место проживания")]
+        public string PlaceOfResidence { get; set; }
+
+        [Display(Name = "Возраст")]
+        public int Age { get; set; }
 
         [Display(Name = "ИНН")]
         [RegularExpression(@"^[0-9]{12,12}$", ErrorMessage = "Ошибка ввода. Необходимо ввести 12 цифр")]
@@ -219,7 +234,7 @@ namespace BioApp.Models
         public bool HormonalChanges { get; set; }
 
         //Экзогенные  факторы        
-        [Display(Name = "Ожоги")]
+        [Display(Name = "Солнечные ожоги кожного покрова")]
         public Burns burns { get; set; }
 
         [Display(Name = "Наличие заболеваний иммунной системы")]

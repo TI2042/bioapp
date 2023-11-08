@@ -4,14 +4,16 @@ using BioApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BioApp.Migrations
 {
     [DbContext(typeof(BioContext))]
-    partial class BioContextModelSnapshot : ModelSnapshot
+    [Migration("20231108171237_NewUpdatePatient")]
+    partial class NewUpdatePatient
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

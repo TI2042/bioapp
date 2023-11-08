@@ -118,7 +118,7 @@ namespace BioApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
+        public async Task<IActionResult> Create([Bind("id,IdNumber,SNILS,PlaceOfBirth, PlaceOfResidence, Age, passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
             "previousMelanoma,previousMelanomaInFamily,nevusType,PresenceOfFreckles,ObligateFormsOfPrecancer,HormonalChanges,burns," +
             "immuneSystemDiseases,ageGroup,eyeType,skinType,hairType")] Patient patient)
         {
@@ -152,7 +152,7 @@ namespace BioApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("id,passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
+        public async Task<IActionResult> Edit(Guid id, [Bind("id,IdNumber,SNILS,PlaceOfBirth, PlaceOfResidence, Age,passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
             "previousMelanoma,previousMelanomaInFamily,nevusType,PresenceOfFreckles,ObligateFormsOfPrecancer,HormonalChanges,burns," +
             "immuneSystemDiseases,ageGroup,eyeType,skinType,hairType")] Patient patient)
         {

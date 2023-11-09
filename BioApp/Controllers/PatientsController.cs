@@ -120,7 +120,7 @@ namespace BioApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id,IdNumber,SNILS,PlaceOfBirth, PlaceOfResidence, Age, passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
             "previousMelanoma,previousMelanomaInFamily,nevusType,PresenceOfFreckles,ObligateFormsOfPrecancer,HormonalChanges,burns," +
-            "immuneSystemDiseases,ageGroup,eyeType,skinType,hairType")] Patient patient)
+            "immuneSystemDiseases,ageGroup,eyeType,skinType,hairType, hormonalChangesNew, geneticAbnormalitiesInChromosomes, melanoma, compoundMelonoma, parents, simba, relatives, numberOfMoles, nevus, birthmarks, uf, immuneSystem, XerodermaPigmentosum")] Patient patient)
         {
             if (ModelState.IsValid)
             {
@@ -154,7 +154,7 @@ namespace BioApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("id,IdNumber,SNILS,PlaceOfBirth, PlaceOfResidence, Age,passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
             "previousMelanoma,previousMelanomaInFamily,nevusType,PresenceOfFreckles,ObligateFormsOfPrecancer,HormonalChanges,burns," +
-            "immuneSystemDiseases,ageGroup,eyeType,skinType,hairType")] Patient patient)
+            "immuneSystemDiseases,ageGroup,eyeType,skinType,hairType, hormonalChangesNew, geneticAbnormalitiesInChromosomes,melanoma, compoundMelonoma, parents, simba, relatives, numberOfMoles, nevus, birthmarks, uf, immuneSystem, XerodermaPigmentosum")] Patient patient)
         {
             if (id != patient.id)
             {

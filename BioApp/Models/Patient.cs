@@ -18,23 +18,23 @@ namespace BioApp.Models
     }
     public enum SkinType
     {
-        [Description("1-й Тип. Белая кожа")]
-        [Display(Name = "1-й Тип. Белая кожа")]
+        [Description("I – кельтский - молочно-белая кожа с веснушками. Рыжие или очень светлые волосы. Глаза голубые или зеленые")]
+        [Display(Name = "I – кельтский - молочно-белая кожа с веснушками. Рыжие или очень светлые волосы. Глаза голубые или зеленые")]
         First,
-        [Description("2-й Тип. Cветлая кожа")]
-        [Display(Name = "2-й Тип. Cветлая кожа")]
+        [Description("II – европейский светлокожий - кожа светлая, веснушек мало. Волосы русые, светло-каштановые. Глаза зеленые, голубые или серые")]
+        [Display(Name = "II – европейский светлокожий - кожа светлая, веснушек мало. Волосы русые, светло-каштановые. Глаза зеленые, голубые или серые")]
         Second,
-        [Description("3-й Тип. Промежуточный тип кожи")]
-        [Display(Name = "3-й Тип. Промежуточный тип кожи")]
+        [Description("III – европейский темнокожий - кожа светло-коричневая, без веснушек. Волосы каштановые. Глаза серые или карие")]
+        [Display(Name = "III – европейский темнокожий - кожа светло-коричневая, без веснушек. Волосы каштановые. Глаза серые или карие")]
         Third,
-        [Description("4-й Тип. Оливковая кожа")]
-        [Display(Name = "4-й Тип. Оливковая кожа")]
+        [Description("IV – средиземноморский - кожа смуглая. Глаза карие. Волосы темные")]
+        [Display(Name = "IV – средиземноморский - кожа смуглая. Глаза карие. Волосы темные")]
         Fourth,
-        [Description("5-й Тип. Коричневая кожа")]
-        [Display(Name = "5-й Тип. Коричневая кожа")]
+        [Description("V – индонезийский - кожа очень смуглая. Глаза темно-карие. Волосы черные")]
+        [Display(Name = "V – индонезийский - кожа очень смуглая. Глаза темно-карие. Волосы черные")]
         Fifth,
-        [Description("6-й Тип. Черная кожа")]
-        [Display(Name = "6-й Тип. Черная кожа")]
+        [Description("VI – афроамериканский - кожа очень темная. Глаза черно-карие. Волосы черные")]
+        [Display(Name = "VI – афроамериканский - кожа очень темная. Глаза черно-карие. Волосы черные")]
         Six
     }
     public enum EyeType
@@ -110,6 +110,48 @@ namespace BioApp.Models
         Hair1,
     }
 
+    public enum HormonalChangesNew
+    {
+        [Description("Половое созревание")]
+        [Display(Name = "Половое созревание")]
+        Puberty,
+        [Description("Прием гормональных контрацептивов")]
+        [Display(Name = "Прием гормональных контрацептивов")]
+        TakingHormonalContraceptives,
+        [Description("Прием гормональных препаратов")]
+        [Display(Name = "Прием гормональных препаратов")]
+        TakingHormonalMedications,
+        [Description("Беременность")]
+        [Display(Name = "Беременность")]
+        Pregnancy,
+        [Description("Климактерический период")]
+        [Display(Name = "Климактерический период")]
+        Menopause
+
+    }
+    public enum GeneticAbnormalitiesInChromosomes
+    {
+        [Description("1")]
+        [Display(Name = "1")]
+        One,
+        [Description("6")]
+        [Display(Name = "6")]
+        Six,
+        [Description("7")]
+        [Display(Name = "7")]
+        Seven,
+        [Description("9")]
+        [Display(Name = "9")]
+        Nine,
+        [Description("10")]
+        [Display(Name = "10")]
+        Ten,
+        [Description("11")]
+        [Display(Name = "11")]
+        Eleven
+
+    }
+
     public enum NevusType
     {
         [Description("Невусы отсутствуют")]
@@ -120,7 +162,118 @@ namespace BioApp.Models
         Single,
         [Description("Множественные невусы(более 20)")]
         [Display(Name = "Множественные невусы(более 20)")]
-        Set     
+        Set
+    }
+    public enum Melanoma
+    {
+        [Description("Поверхностная распространяющаяся меланома (SSM)")]
+        [Display(Name = "Поверхностная распространяющаяся меланома (SSM)")]
+        SSM,
+        [Description("Узловая злокачественная меланома (NMM)")]
+        [Display(Name = "Узловая злокачественная меланома (NMM)")]
+        NMM,
+        [Description("Меланома злокачественного лентиго (LMM)")]
+        [Display(Name = "Меланома злокачественного лентиго (LMM)")]
+        LMM,
+        [Description("Акральная лентигинозная меланома (ALM)")]
+        [Display(Name = "Акральная лентигинозная меланома (ALM)")]
+        ALM,
+        [Description("Лентигинозная меланома слизистых оболочек")]
+        [Display(Name = "Лентигинозная меланома слизистых оболочек")]
+        LentiginousMelanoma,
+        [Description("Меланома сетчатки глаза (увеальная)")]
+        [Display(Name = "Меланома сетчатки глаза (увеальная)")]
+        Uveal,
+        [Description("Десмопластическая меланома (малигнизированная меланома мягких тканей (malignant melanoma of soft parts или clear cell sarcoma)")]
+        [Display(Name = "Десмопластическая меланома (малигнизированная меланома мягких тканей (malignant melanoma of soft parts или clear cell sarcoma) ")]
+        MalignantMelanoma,
+        [Description("Беспигментная (амеланотическая) меланома.")]
+        [Display(Name = "Беспигментная (амеланотическая) меланома.")]
+        PigmentlessMelanoma
+    }
+    public enum CompoundMelonoma
+    {
+        [Description("Эпителиоидные")]
+        [Display(Name = "Эпителиоидные")]
+        Epithelioid,
+        [Description("Веретеноклеточные")]
+        [Display(Name = "Веретеноклеточные")]
+        SpindleCell,
+        [Description("Невоидные")]
+        [Display(Name = "Невоидные")]
+        Nevoid,
+        [Description("Смешанные")]
+        [Display(Name = "Смешанные")]
+        Mixed
+    }
+
+    public enum Parents
+    {
+        [Description("Отец")]
+        [Display(Name = "Отец")]
+        mum,
+        [Description("Мать")]
+        [Display(Name = "Мать")]
+        dad
+
+    }
+    public enum Simba
+    {
+        [Description("Брат")]
+        [Display(Name = "Брат")]
+        brouther,
+        [Description("Сестра")]
+        [Display(Name = "Сестра")]
+        sister
+
+    }
+    public enum Birthmarks
+    {
+        [Description("Более 5% поверхности кожного покрова")]
+        [Display(Name = "Более 5% поверхности кожного покрова")]
+        five,
+        [Description("Размером более 20 см.")]
+        [Display(Name = "Размером более 20 см.")]
+        twenty
+
+    }
+    public enum UF
+    {
+        [Description("Нахождение под прямым воздействием солнечного света более 6 ч в день")]
+        [Display(Name = "Нахождение под прямым воздействием солнечного света более 6 ч в день")]
+        sun,
+        [Description("Злоупотребление солярием")]
+        [Display(Name = "Злоупотребление солярием")]
+        solar
+
+    }
+    public enum Relatives
+    {
+        [Description("По мужской линии (оставить поле для заполнения)")]
+        [Display(Name = "По мужской линии (оставить поле для заполнения)")]
+        maleLine,
+        [Description("По женской линии (оставить поле для заполнения)")]
+        [Display(Name = "По женской линии (оставить поле для заполнения)")]
+        femaleLine
+
+    }
+    public enum Nevus
+    {
+        [Description("Диспластические / атипичные невусы вероятность развития меланомы в течение жизни составляет 10-30% - размером более 6 мм, неправильной формы, от розового до коричневого цвета, часто с неровными краями")]
+        [Display(Name = "Диспластические / атипичные невусы вероятность развития меланомы в течение жизни составляет 10-30% - размером более 6 мм, неправильной формы, от розового до коричневого цвета, часто с неровными краями")]
+        AtypicalNevus,
+        [Description("Межевой/пограничный (эпидермальный) невус")]
+        [Display(Name = "Межевой/пограничный (эпидермальный) невус")]
+        EpidermalNevus,
+        [Description("Смешанный невус")]
+        [Display(Name = "Смешанный невус")]
+        MixedNevus,
+        [Description("Внутридермальный невус")]
+        [Display(Name = "Внутридермальный невус")]
+        IntradermalNevus,
+        [Description("Невус с пигментным компонентом")]
+        [Display(Name = "Невус с пигментным компонентом")]
+        NevusPigmentedComponent
     }
     public enum UVInsolation
     {
@@ -246,10 +399,38 @@ namespace BioApp.Models
         [Display(Name = "Тип кожи по Фитцпатрику")]
         public SkinType skinType { get; set; }
 
-        [Display(Name = "Тип глаз")]
+        [Display(Name = "Цвет глаз")]
         public EyeType eyeType { get; set; }
 
         [Display(Name = "Тип волос")]
         public HairType hairType { get; set; }
+
+        [Display(Name = "Гормональные изменения")]
+        public HormonalChangesNew hormonalChangesNew { get; set; }
+
+        [Display(Name = "Генетические аномалии в хромосомах")]
+        public GeneticAbnormalitiesInChromosomes geneticAbnormalitiesInChromosomes { get; set; }
+        [Display(Name = "Меланома")]
+        public Melanoma melanoma { get; set; }
+        [Display(Name = "Клеточный состав меланом")]
+        public CompoundMelonoma compoundMelonoma { get; set; }
+        [Display(Name = "Родители")]
+        public Parents parents { get; set; }
+        [Display(Name = "Симбсы")]
+        public Simba simba { get; set; }
+        [Display(Name = "Другие родственники")]
+        public Relatives relatives { get; set; }
+        [Display(Name = "Более 50 родинок или наличие родинки диаметром более 2 см.")]
+        public bool numberOfMoles { get; set; }
+        [Display(Name = "Невусы - факультативные формы предрака")]
+        public Nevus nevus { get; set; }
+        [Display(Name = "Врожденные пигментные невусы / родимые пятна")]
+        public Birthmarks birthmarks { get; set; }
+        [Display(Name = "Воздействие УФ-облучения")]
+        public UF uf { get; set; }
+        [Display(Name = "Люди с ослабленной иммунной системой (как следствие заболевания или терапии)")]
+        public bool immuneSystem { get; set; }
+        [Display(Name = "Пигментная ксеродермия")]
+        public bool XerodermaPigmentosum { get; set; }
     }
 }

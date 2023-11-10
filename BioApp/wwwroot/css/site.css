@@ -105,10 +105,11 @@ html {
 
 body {
     /* Margin bottom by footer height */
-    background: url(./background2.jpg) center center no-repeat;
+
+    background: url(./background2.jpg) no-repeat fixed;
     margin-bottom: 60px;
     min-height: 100%;
-    background-size: cover;
+
 }
 
 .footer {

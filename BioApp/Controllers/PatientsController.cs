@@ -27,6 +27,10 @@ namespace BioApp.Controllers
         {
             return View(await _context.Patients.ToListAsync());
         }
+        public async Task<IActionResult> Index2()
+        {
+            return View(await _context.Patients.ToListAsync());
+        }
         public async Task<IActionResult> Metrics()
         {
 

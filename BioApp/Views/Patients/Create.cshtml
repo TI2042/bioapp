@@ -16,7 +16,7 @@
 
 <form asp-action="Create">
     <div class="row">
-        <div class="col" id="CommonData" style="display:block" >
+        <div class="col" id="CommonData" style="display:block">
             <b>Общие данные</b>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -221,20 +221,13 @@
                 <label asp-for="XerodermaPigmentosum" class="control-label"></label>
                 <input type="checkbox" asp-for="XerodermaPigmentosum" class="form-control" />
                 <span asp-validation-for="XerodermaPigmentosum" class="text-danger"></span>
-            </div>           
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <a asp-action="Index" class="btn btn-primary">Назад к списку</a>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col">
             <div class="form-group">
-                <input type="submit" value="Сохранить" class="btn btn-primary" />
+                <input type="submit" value="Сохранить" class="btn btn-primary" /> | <a asp-action="Index" class="btn btn-primary">Назад к списку</a>
             </div>
         </div>
     </div>

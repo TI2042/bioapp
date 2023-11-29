@@ -355,7 +355,7 @@ namespace BioApp.Models
         [Display(Name = "ФИО пациента")]
         public string name { get; set; }
         [Display(Name = "Дата рождения")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")]
+        
         public DateTime birthDate { get; set; }
         [Display(Name = "Пол")]
         public Gender gender { get; set; }

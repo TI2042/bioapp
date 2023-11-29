@@ -9,11 +9,26 @@
 
 <hr />
 
+<button class="btn btn-primary" onclick="OpenCommonData()">Общие данные</button>
+<button class="btn btn-primary" onclick="OpenExogenousFactors()">Экзогенные факторы риска</button>
+<button class="btn btn-primary" onclick="OpenEndogenousFactors()">Эндогенные факторы риска</button>
+<button class="btn btn-primary" onclick="HighRiskGroup()">Группа высокого риска</button>
+
 <form asp-action="Edit">
     <div class="row">
-        <div class="col">
+        <div class="col" id="CommonData" style="display:block">
+            <b>Общие данные</b>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="IdNumber" class="control-label"></label>
+                <input asp-for="IdNumber" class="form-control" />
+                <span asp-validation-for="IdNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="passportNumber" class="control-label"></label>
                 <input asp-for="passportNumber" class="form-control" />
@@ -25,43 +40,58 @@
                 <span asp-validation-for="INN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="OMSNumber" class="control-label"></label>
-                <input asp-for="OMSNumber" class="form-control" />
-                <span asp-validation-for="OMSNumber" class="text-danger"></span>
+                <label asp-for="SNILS" class="control-label"></label>
+                <input asp-for="SNILS" class="form-control" />
+                <span asp-validation-for="SNILS" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="birthDate" class="control-label"></label>
-                <input type="date" asp-for="birthDate" value="@Model.birthDate.ToString("yyyy-MM-dd")" class="form-control" />
+                <input asp-for="birthDate" class="form-control" />
                 <span asp-validation-for="birthDate" class="text-danger"></span>
             </div>
+
+            <div class="form-group">
+                <label asp-for="PlaceOfBirth" class="control-label"></label>
+                <input asp-for="PlaceOfBirth" class="form-control" />
+                <span asp-validation-for="PlaceOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PlaceOfResidence" class="control-label"></label>
+                <input asp-for="PlaceOfResidence" class="form-control" />
+                <span asp-validation-for="PlaceOfResidence" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <label asp-for="gender" class="control-label"></label>
                 <select asp-for="gender" class="form-control" asp-items="@Html.GetEnumSelectList<Gender>()"></select>
                 <span asp-validation-for="gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="registrationDate" class="control-label"></label>
-                <input type="date" asp-for="registrationDate" value="@Model.registrationDate.ToString("yyyy-MM-dd")" class="form-control" />
-                <span asp-validation-for="registrationDate" class="text-danger"></span>
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
             </div>
-            <b>Экзогенные факторы</b>
+        </div>
+
+        <div class="col" id="ExogenousFactors" style="display:none">
+            <b>Экзогенные факторы риска</b>
             <div class="form-group">
                 <label asp-for="burns" class="control-label"></label>
                 <select asp-for="burns" class="form-control" asp-items="@Html.GetEnumSelectList<Burns>()"></select>
                 <span asp-validation-for="burns" class="text-danger"></span>
             </div>
+        </div>
 
+
+        <div class="col" id="EndogenousFactors" style="display:none">
+            <b>Эндогенные факторы</b>
             <div class="form-group">
                 <label asp-for="ageGroup" class="control-label"></label>
                 <select asp-for="ageGroup" class="form-control" asp-items="@Html.GetEnumSelectList<AgeGroup>()"></select>
                 <span asp-validation-for="ageGroup" class="text-danger"></span>
             </div>
-
 
             <div class="form-group">
                 <label asp-for="immuneSystemDiseases" class="control-label"></label>
@@ -86,11 +116,6 @@
                 <span asp-validation-for="hairType" class="text-danger"></span>
             </div>
             <img src="~/img/hair.png" background-color="inherit" width="600" height="150" />
-
-        </div>
-
-        <div class="col">
-            <b>Эндогенные факторы</b>
             <div class="form-group">
                 <label asp-for="previousMelanoma" class="control-label"></label>
                 <input type="checkbox" asp-for="previousMelanoma" class="form-control" />
@@ -125,9 +150,78 @@
                 <select asp-for="nevusType" class="form-control" asp-items="@Html.GetEnumSelectList<NevusType>()"></select>
                 <span asp-validation-for="nevusType" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="hormonalChangesNew" class="control-label"></label>
+                <select asp-for="hormonalChangesNew" class="form-control" asp-items="@Html.GetEnumSelectList<HormonalChangesNew>()"></select>
+                <span asp-validation-for="hormonalChangesNew" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="geneticAbnormalitiesInChromosomes" class="control-label"></label>
+                <select asp-for="geneticAbnormalitiesInChromosomes" class="form-control" asp-items="@Html.GetEnumSelectList<GeneticAbnormalitiesInChromosomes>()"></select>
+                <span asp-validation-for="geneticAbnormalitiesInChromosomes" class="text-danger"></span>
+            </div>
+        </div>
 
-
-
+        <div class="col" id="HighRiskGroup" style="display:none">
+            <b>Группа высокого риска</b>
+            <p>Ранее, в течение последних 5 лет, был случай заболевания меланомой или раком кожи (базальноклеточная карцинома, плоскоклеточный рак, пигментная ксеродермия ….). </p>
+            <div class="form-group">
+                <label asp-for="melanoma" class="control-label"></label>
+                <select asp-for="melanoma" class="form-control" asp-items="@Html.GetEnumSelectList<Melanoma>()"></select>
+                <span asp-validation-for="melanoma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="compoundMelonoma" class="control-label"></label>
+                <select asp-for="compoundMelonoma" class="form-control" asp-items="@Html.GetEnumSelectList<CompoundMelonoma>()"></select>
+                <span asp-validation-for="compoundMelonoma" class="text-danger"></span>
+            </div>
+            <p>Случаи меланомы в семейном анамнезе</p>
+            <div class="form-group">
+                <label asp-for="parents" class="control-label"></label>
+                <select asp-for="parents" class="form-control" asp-items="@Html.GetEnumSelectList<Parents>()"></select>
+                <span asp-validation-for="parents" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="simba" class="control-label"></label>
+                <select asp-for="simba" class="form-control" asp-items="@Html.GetEnumSelectList<Simba>()"></select>
+                <span asp-validation-for="simba" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="relatives" class="control-label"></label>
+                <select asp-for="relatives" class="form-control" asp-items="@Html.GetEnumSelectList<Relatives>()"></select>
+                <span asp-validation-for="relatives" class="text-danger"></span>
+            </div>
+            <p>Большое количество родинок</p>
+            <div class="form-group">
+                <label asp-for="numberOfMoles" class="control-label"></label>
+                <input type="checkbox" asp-for="numberOfMoles" class="form-control" />
+                <span asp-validation-for="numberOfMoles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nevus" class="control-label"></label>
+                <select asp-for="nevus" class="form-control" asp-items="@Html.GetEnumSelectList<Nevus>()"></select>
+                <span asp-validation-for="nevus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="birthmarks" class="control-label"></label>
+                <select asp-for="birthmarks" class="form-control" asp-items="@Html.GetEnumSelectList<Birthmarks>()"></select>
+                <span asp-validation-for="birthmarks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="uf" class="control-label"></label>
+                <select asp-for="uf" class="form-control" asp-items="@Html.GetEnumSelectList<UF>()"></select>
+                <span asp-validation-for="uf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="immuneSystem" class="control-label"></label>
+                <input type="checkbox" asp-for="immuneSystem" class="form-control" />
+                <span asp-validation-for="immuneSystem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="XerodermaPigmentosum" class="control-label"></label>
+                <input type="checkbox" asp-for="XerodermaPigmentosum" class="form-control" />
+                <span asp-validation-for="XerodermaPigmentosum" class="text-danger"></span>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -142,4 +236,60 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+}<script>
+     function OpenCommonData() {
+         var CommonData = document.getElementById("CommonData");
+         var ExogenousFactors = document.getElementById("ExogenousFactors");
+         var EndogenousFactors = document.getElementById("EndogenousFactors");
+         if ((window.getComputedStyle(CommonData).display === "none") && ((window.getComputedStyle(ExogenousFactors).display === "block") || (window.getComputedStyle(EndogenousFactors).display === "block"))) {
+             CommonData.style.display = "block";
+             ExogenousFactors.style.display = "none";
+             EndogenousFactors.style.display = "none";
+         }
+     }
+</script>
+
+<script>
+    function OpenExogenousFactors() {
+        var CommonData = document.getElementById("CommonData");
+        var ExogenousFactors = document.getElementById("ExogenousFactors");
+        var EndogenousFactors = document.getElementById("EndogenousFactors");
+        var HighRiskGroup = document.getElementById("HighRiskGroup");
+        if ((window.getComputedStyle(ExogenousFactors).display === "none") && ((window.getComputedStyle(CommonData).display === "block") || (window.getComputedStyle(HighRiskGroup).display === "block") || (window.getComputedStyle(EndogenousFactors).display === "block"))) {
+            ExogenousFactors.style.display = "block";
+            CommonData.style.display = "none";
+            HighRiskGroup.style.display = "none";
+            EndogenousFactors.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function OpenEndogenousFactors() {
+        var CommonData = document.getElementById("CommonData");
+        var ExogenousFactors = document.getElementById("ExogenousFactors");
+        var EndogenousFactors = document.getElementById("EndogenousFactors");
+        var HighRiskGroup = document.getElementById("HighRiskGroup");
+        if ((window.getComputedStyle(EndogenousFactors).display === "none") && ((window.getComputedStyle(ExogenousFactors).display === "block") || (window.getComputedStyle(HighRiskGroup).display === "block") || (window.getComputedStyle(CommonData).display === "block"))) {
+            EndogenousFactors.style.display = "block";
+            ExogenousFactors.style.display = "none";
+            HighRiskGroup.style.display = "none";
+            CommonData.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    function HighRiskGroup() {
+        var CommonData = document.getElementById("CommonData");
+        var ExogenousFactors = document.getElementById("ExogenousFactors");
+        var EndogenousFactors = document.getElementById("EndogenousFactors");
+        var HighRiskGroup = document.getElementById("HighRiskGroup");
+        if ((window.getComputedStyle(HighRiskGroup).display === "none") && ((window.getComputedStyle(ExogenousFactors).display === "block") || (window.getComputedStyle(EndogenousFactors).display === "block") || (window.getComputedStyle(CommonData).display === "block"))) {
+            HighRiskGroup.style.display = "block";
+            EndogenousFactors.style.display = "none";
+            ExogenousFactors.style.display = "none";
+            CommonData.style.display = "none";
+        }
+    }
+</script>

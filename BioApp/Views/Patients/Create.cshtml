@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
+
 }
 
 <h1>Персональные и клинические данные пациента</h1>
@@ -72,13 +73,6 @@
                 <input asp-for="Age" class="form-control" />
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="submit" value="Сохранить" class="btn btn-primary" />
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="col" id="ExogenousFactors" style="display:none">
@@ -87,13 +81,6 @@
                 <label asp-for="burns" class="control-label"></label>
                 <select asp-for="burns" class="form-control" asp-items="@Html.GetEnumSelectList<Burns>()"></select>
                 <span asp-validation-for="burns" class="text-danger"></span>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="submit" value="Сохранить" class="btn btn-primary" />
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -173,13 +160,6 @@
                 <select asp-for="geneticAbnormalitiesInChromosomes" class="form-control" asp-items="@Html.GetEnumSelectList<GeneticAbnormalitiesInChromosomes>()"></select>
                 <span asp-validation-for="geneticAbnormalitiesInChromosomes" class="text-danger"></span>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="submit" value="Сохранить" class="btn btn-primary" />
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="col" id="HighRiskGroup" style="display:none">
@@ -241,20 +221,20 @@
                 <label asp-for="XerodermaPigmentosum" class="control-label"></label>
                 <input type="checkbox" asp-for="XerodermaPigmentosum" class="form-control" />
                 <span asp-validation-for="XerodermaPigmentosum" class="text-danger"></span>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <input type="submit" value="Сохранить" class="btn btn-primary" />
-                    </div>
-                </div>
-            </div>
+            </div>           
         </div>
     </div>
     <div class="row">
         <div class="col">
             <div class="form-group">
                 <a asp-action="Index" class="btn btn-primary">Назад к списку</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
             </div>
         </div>
     </div>

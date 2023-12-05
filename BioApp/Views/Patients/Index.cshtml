@@ -6,6 +6,20 @@
 
 <h1>Список пациентов</h1>
 
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">ФИО:</label>
+    <div class="col-sm-4">
+
+        <br />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-4">
+        <input type="submit" value="Найти" class="btn btn-primary" />
+
+        <hr />
+    </div>
+</div>
 <p>
     <a asp-action="Create" class="btn btn-primary">Добавить пациента</a>
 </p>
@@ -41,9 +55,12 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td width="170">
+            <td width="230">
                 <a asp-action="Edit" asp-route-id="@item.id">
                     <img alt="Qries" src="~/img/edit.png" background-color="inherit" width="30" height="30" />
+                </a>
+                <a asp-action="Copy" asp-route-id="@item.id">
+                    <img alt="Qries" src="~/img/copy.png" background-color="inherit" width="30" height="30" />
                 </a>
                 <a asp-action="Index" asp-controller="CommonAnalysis" asp-route-PatientId="@item.id">
                     <img alt="Qries" src="~/img/analysis.png" background-color="inherit" width="30" height="30" />
@@ -51,7 +68,10 @@
                 <a asp-action="Index" asp-controller="MKBClassifiers" asp-route-PatientId="@item.id">
                     <img alt="Qries" src="~/img/diagnosis.png" background-color="inherit" width="30" height="30" />
                 </a>
-                <a asp-action="Delete" asp-route-id="@item.id" >
+                <a asp-action="Report" asp-route-id="@item.id">
+                    <img alt="Qries" src="~/img/report.png" background-color="inherit" width="30" height="30" />
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.id">
                     <img alt="Qries" src="~/img/delete.png" background-color="inherit" width="30" height="30" />
                 </a>
 

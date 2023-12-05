@@ -20,6 +20,11 @@
             <b>Общие данные</b>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="registrationDate" class="control-label"></label>
+                <input asp-for="registrationDate" type="date" class="form-control" />
+                <span asp-validation-for="registrationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="IdNumber" class="control-label"></label>
                 <input asp-for="IdNumber" class="form-control" />
                 <span asp-validation-for="IdNumber" class="text-danger"></span>
@@ -29,10 +34,35 @@
                 <input asp-for="name" class="form-control" />
                 <span asp-validation-for="name" class="text-danger"></span>
             </div>
+            <b>Данные паспорта:</b>
+            <div class="nav">
+                <div class="form-group">
+                    <label asp-for="seriaPassport" class="control-label"></label>
+                    <input asp-for="seriaPassport" class="form-control" />
+                    <span asp-validation-for="seriaPassport" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="numberPassport" class="control-label"></label>
+                    <input asp-for="numberPassport" class="form-control" />
+                    <span asp-validation-for="numberPassport" class="text-danger"></span>
+                </div>
+            </div>
             <div class="form-group">
-                <label asp-for="passportNumber" class="control-label"></label>
-                <input asp-for="passportNumber" class="form-control" />
-                <span asp-validation-for="passportNumber" class="text-danger"></span>
+                <label asp-for="issuedByPassport" class="control-label"></label>
+                <input asp-for="issuedByPassport" class="form-control" />
+                <span asp-validation-for="issuedByPassport" class="text-danger"></span>
+            </div>
+            <div class="nav">
+                <div class="form-group">
+                    <label asp-for="datePassport" class="control-label"></label>
+                    <input asp-for="datePassport" type="date" class="form-control" />
+                    <span asp-validation-for="datePassport" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="kodPassport" class="control-label"></label>
+                    <input asp-for="kodPassport" class="form-control" />
+                    <span asp-validation-for="kodPassport" class="text-danger"></span>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="INN" class="control-label"></label>

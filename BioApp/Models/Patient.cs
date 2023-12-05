@@ -327,12 +327,25 @@ namespace BioApp.Models
         [Display(Name = "Номер паспорта пациента")]
         [RegularExpression(@"^[0-9]{10,10}$", ErrorMessage = "Ошибка ввода. Необходимо ввести 10 цифр")]
         public string passportNumber { get; set; }
+        [Display(Name = "Серия")]
+        [RegularExpression(@"^[0-9]{4,4}$", ErrorMessage = "Ошибка ввода. Необходимо ввести 4 цифры")]
+        public string seriaPassport { get; set; }
+        [Display(Name = "Номер")]
+        [RegularExpression(@"^[0-9]{6,6}$", ErrorMessage = "Ошибка ввода. Необходимо ввести 6 цифры")]
+        public string numberPassport { get; set; }
+        [Display(Name = "Кем выдан")]
+        public string issuedByPassport { get; set; }
+        [Display(Name = "Когда выдан")]
+        public DateTime datePassport { get; set; }
+        [Display(Name = "Код подразделения")]
+        [RegularExpression(@"^\d{3}-\d{3}$", ErrorMessage = "Ошибка ввода. Код подразделения должен быть формата: 111-111")]
+        public string kodPassport { get; set; }
 
         [Display(Name = "Идентификационный номер")]
         public string IdNumber { get; set; }
 
         [Display(Name = "СНИЛС")]
-        [RegularExpression(@"^\d{3}-\d{3}-\d{3}-\d{2}$", ErrorMessage = "Ошибка ввода.")]
+        [RegularExpression(@"^\d{3}-\d{3}-\d{3}-\d{2}$", ErrorMessage = "Ошибка ввода. СНИЛС должен быть формата: 111-111-111-11")]
         public string SNILS { get; set; }
 
         [Display(Name = "Место рождения")]
@@ -355,12 +368,10 @@ namespace BioApp.Models
         [Display(Name = "ФИО пациента")]
         public string name { get; set; }
         [Display(Name = "Дата рождения")]
-        
         public DateTime birthDate { get; set; }
         [Display(Name = "Пол")]
         public Gender gender { get; set; }
-        [Display(Name = "Дата регистрация")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd.MM.yyyy}")]
+        [Display(Name = "Дата посещения")]
         public DateTime registrationDate { get; set; }
         [Display(Name = "Файлы")]
         public ICollection<BioFile> files { get; set; }

@@ -20,6 +20,11 @@
             <b>Общие данные</b>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="registrationDate" class="control-label"></label>
+                <input asp-for="registrationDate" type="date" class="form-control" />
+                <span asp-validation-for="registrationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="IdNumber" class="control-label"></label>
                 <input asp-for="IdNumber" class="form-control" />
                 <span asp-validation-for="IdNumber" class="text-danger"></span>
@@ -29,11 +34,37 @@
                 <input asp-for="name" class="form-control" />
                 <span asp-validation-for="name" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="passportNumber" class="control-label"></label>
-                <input asp-for="passportNumber" class="form-control" />
-                <span asp-validation-for="passportNumber" class="text-danger"></span>
+            <b>Данные паспорта:</b>
+            <div class="nav">
+                <div class="form-group" style="flex: 1 0 auto; ">
+                    <label asp-for="seriaPassport" class="control-label"></label>
+                    <input asp-for="seriaPassport" class="form-control" />
+                    <span asp-validation-for="seriaPassport" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="flex: 1 0 auto; margin-left: 10px">
+                    <label asp-for="numberPassport" class="control-label"></label>
+                    <input asp-for="numberPassport" class="form-control" />
+                    <span asp-validation-for="numberPassport" class="text-danger"></span>
+                </div>
             </div>
+            <div class="form-group">
+                <label asp-for="issuedByPassport" class="control-label"></label>
+                <input asp-for="issuedByPassport" class="form-control" />
+                <span asp-validation-for="issuedByPassport" class="text-danger"></span>
+            </div>
+            <div class="nav" >
+                <div class="form-group" style="flex: 1 0 auto">
+                    <label asp-for="datePassport" class="control-label"></label>
+                    <input asp-for="datePassport" type="date" class="form-control" />
+                    <span asp-validation-for="datePassport" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="flex: 1 0 auto; margin-left: 10px">
+                    <label asp-for="kodPassport" class="control-label"></label>
+                    <input asp-for="kodPassport" class="form-control" />
+                    <span asp-validation-for="kodPassport" class="text-danger"></span>
+                </div>
+            </div>
+
             <div class="form-group">
                 <label asp-for="INN" class="control-label"></label>
                 <input asp-for="INN" class="form-control" />
@@ -44,10 +75,14 @@
                 <input asp-for="SNILS" class="form-control" />
                 <span asp-validation-for="SNILS" class="text-danger"></span>
             </div>
-
+            <div class="form-group">
+                <label asp-for="OMSNumber" class="control-label"></label>
+                <input asp-for="OMSNumber" class="form-control" />
+                <span asp-validation-for="OMSNumber" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="birthDate" class="control-label"></label>
-                <input asp-for="birthDate" class="form-control" />
+                <input asp-for="birthDate" type="date" class="form-control" />
                 <span asp-validation-for="birthDate" class="text-danger"></span>
             </div>
 
@@ -103,19 +138,150 @@
                 <select asp-for="skinType" class="form-control" asp-items="@Html.GetEnumSelectList<SkinType>()"></select>
                 <span asp-validation-for="skinType" class="text-danger"></span>
             </div>
-            <img src="~/img/fitz.png" background-color="inherit" width="600" height="150" />
+
+            <div class="nav">
+
+                <a class="btn" asp-action="Create1" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/fitz6.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/fitz5.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/fitz4.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/fitz3.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/fitz2.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/fitz1.png" background-color="inherit" width="70" height="70" />
+                </a>
+            </div>
+
+
             <div class="form-group">
                 <label asp-for="eyeType" class="control-label"></label>
                 <select asp-for="eyeType" class="form-control" asp-items="@Html.GetEnumSelectList<EyeType>()"></select>
                 <span asp-validation-for="eyeType" class="text-danger"></span>
             </div>
-            <img src="~/img/eye.png" background-color="inherit" width="600" height="450" />
+
+            <b>I тип. Темный.</b>
+            <div class="nav">
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye1.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye2.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye3.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye4.png" background-color="inherit" width="140" height="110" />
+                </a>
+            </div>
+            <b>II тип. Смешанный.</b>
+            <div class="nav">
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye5.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye6.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye7.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye8.png" background-color="inherit" width="140" height="110" />
+                </a>
+            </div>
+            <b>III тип. Светлый.</b>
+            <div class="nav">
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye9.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye10.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye11.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients">
+                    <img alt="Qries" src="~/img/eye12.png" background-color="inherit" width="140" height="110" />
+                </a>
+            </div>
             <div class="form-group">
                 <label asp-for="hairType" class="control-label"></label>
                 <select asp-for="hairType" class="form-control" asp-items="@Html.GetEnumSelectList<HairType>()"></select>
                 <span asp-validation-for="hairType" class="text-danger"></span>
             </div>
-            <img src="~/img/hair.png" background-color="inherit" width="600" height="150" />
+
+            <div class="nav">
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair10.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">10</div>
+                    <div class="rectangle text_right">Платин,</div>
+                    <div class="rectangle text_right">блондин</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair9.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">9</div>
+                    <div class="rectangle text_right">Яркий</div>
+                    <div class="rectangle text_right">блондин</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair8.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">8</div>
+                    <div class="rectangle text_right">Блондин</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair7.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">7</div>
+                    <div class="rectangle text_right">Светло-</div>
+                    <div class="rectangle text_right">русый</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair6.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">6</div>
+                    <div class="rectangle text_right">Средне-</div>
+                    <div class="rectangle text_right">русый</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair5.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">5</div>
+                    <div class="rectangle text_right">Темно-</div>
+                    <div class="rectangle text_right">русый</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair4.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">4</div>
+                    <div class="rectangle text_right">Светло-</div>
+                    <div class="rectangle text_right">коричн.</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients"style="background-color: white">
+                    <img alt="Qries" src="~/img/hair3.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">3</div>
+                    <div class="rectangle text_right">Средне-</div>
+                    <div class="rectangle text_right">коричн.</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair2.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">2</div>
+                    <div class="rectangle text_right">Темно-</div>
+                    <div class="rectangle text_right">коричн.</div>
+                </a>
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair1.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">1</div>
+                    <div class="rectangle text_right">Черный</div>
+                    <div class="rectangle text_right"></div>
+                </a>
+            </div>
+
+
             <div class="form-group">
                 <label asp-for="previousMelanoma" class="control-label"></label>
                 <input type="checkbox" asp-for="previousMelanoma" class="form-control" />
@@ -134,17 +300,6 @@
                 <span asp-validation-for="PresenceOfFreckles" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="HormonalChanges" class="control-label"></label>
-                <input type="checkbox" asp-for="HormonalChanges" class="form-control" />
-                <span asp-validation-for="HormonalChanges" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="ObligateFormsOfPrecancer" class="control-label"></label>
-                <input type="checkbox" asp-for="ObligateFormsOfPrecancer" class="form-control" />
-                <span asp-validation-for="ObligateFormsOfPrecancer" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="nevusType" class="control-label"></label>
                 <select asp-for="nevusType" class="form-control" asp-items="@Html.GetEnumSelectList<NevusType>()"></select>

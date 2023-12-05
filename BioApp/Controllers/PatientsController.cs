@@ -117,12 +117,19 @@ namespace BioApp.Controllers
             return View();
         }
 
+        // Подставить значение
+        public IActionResult Create1()
+        {
+            ViewBag.skinType = SkinType.Fourth;
+            return View();
+        }
+
         // POST: Patients/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,IdNumber,SNILS,PlaceOfBirth, PlaceOfResidence, Age, passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
+        public async Task<IActionResult> Create([Bind("id,seriaPassport, numberPassport, issuedByPassport, datePassport, kodPassport, IdNumber,SNILS,PlaceOfBirth, PlaceOfResidence, Age, passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
             "previousMelanoma,previousMelanomaInFamily,nevusType,PresenceOfFreckles,ObligateFormsOfPrecancer,HormonalChanges,burns," +
             "immuneSystemDiseases,ageGroup,eyeType,skinType,hairType, hormonalChangesNew, geneticAbnormalitiesInChromosomes, melanoma, compoundMelonoma, parents, simba, relatives, numberOfMoles, nevus, birthmarks, uf, immuneSystem, XerodermaPigmentosum")] Patient patient)
         {
@@ -156,7 +163,7 @@ namespace BioApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("id,IdNumber,SNILS,PlaceOfBirth, PlaceOfResidence, Age,passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
+        public async Task<IActionResult> Edit(Guid id, [Bind("id,seriaPassport, numberPassport, issuedByPassport, datePassport, kodPassport,IdNumber,SNILS,PlaceOfBirth, PlaceOfResidence, Age,passportNumber,INN,OMSNumber,name,birthDate,gender,registrationDate," +
             "previousMelanoma,previousMelanomaInFamily,nevusType,PresenceOfFreckles,ObligateFormsOfPrecancer,HormonalChanges,burns," +
             "immuneSystemDiseases,ageGroup,eyeType,skinType,hairType, hormonalChangesNew, geneticAbnormalitiesInChromosomes,melanoma, compoundMelonoma, parents, simba, relatives, numberOfMoles, nevus, birthmarks, uf, immuneSystem, XerodermaPigmentosum")] Patient patient)
         {

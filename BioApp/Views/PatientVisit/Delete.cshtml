@@ -1,0 +1,273 @@
+﻿@model BioApp.Models.PatientVisits
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PatientVisits</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.passportNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.passportNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.seriaPassport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.seriaPassport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.numberPassport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.numberPassport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.issuedByPassport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.issuedByPassport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.datePassport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.datePassport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.kodPassport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.kodPassport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SNILS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SNILS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PlaceOfBirth)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PlaceOfBirth)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PlaceOfResidence)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PlaceOfResidence)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.INN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.INN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OMSNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OMSNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.birthDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.birthDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.registrationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.registrationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.previousMelanoma)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.previousMelanoma)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.previousMelanomaInFamily)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.previousMelanomaInFamily)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nevusType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nevusType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PresenceOfFreckles)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PresenceOfFreckles)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ObligateFormsOfPrecancer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ObligateFormsOfPrecancer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HormonalChanges)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HormonalChanges)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.burns)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.burns)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.immuneSystemDiseases)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.immuneSystemDiseases)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ageGroup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ageGroup)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.skinType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.skinType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.eyeType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.eyeType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.hairType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.hairType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.hormonalChangesNew)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.hormonalChangesNew)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.geneticAbnormalitiesInChromosomes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.geneticAbnormalitiesInChromosomes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.melanoma)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.melanoma)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.compoundMelonoma)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.compoundMelonoma)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.parents)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.parents)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.simba)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.simba)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.relatives)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.relatives)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.numberOfMoles)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.numberOfMoles)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nevus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nevus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.birthmarks)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.birthmarks)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.uf)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.uf)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.immuneSystem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.immuneSystem)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.XerodermaPigmentosum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.XerodermaPigmentosum)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

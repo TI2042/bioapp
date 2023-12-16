@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace BioApp.Controllers
 {
@@ -135,8 +136,56 @@ namespace BioApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                PatientVisits newVisit = new PatientVisits();
+                newVisit.id = new Guid();
+                newVisit.passportNumber =patient.passportNumber;
+                newVisit.seriaPassport = patient.seriaPassport;
+                newVisit.numberPassport = patient.numberPassport;
+                newVisit.issuedByPassport = patient.issuedByPassport;
+                newVisit.datePassport = patient.datePassport;
+                newVisit.kodPassport = patient.kodPassport;
+                newVisit.SNILS = patient.SNILS;
+                newVisit.PlaceOfBirth = patient.PlaceOfBirth;
+                newVisit.PlaceOfResidence = patient.PlaceOfResidence;
+                newVisit.Age = patient.Age;
+                newVisit.INN = patient.INN;
+                newVisit.name = patient.name;
+                newVisit.birthDate = patient.birthDate;
+                newVisit.gender = patient.gender;
+                newVisit.registrationDate = patient.registrationDate;
+                newVisit.previousMelanoma = patient.previousMelanoma;
+                newVisit.previousMelanomaInFamily = patient.previousMelanomaInFamily;
+                newVisit.nevusType = patient.nevusType;
+                newVisit.PresenceOfFreckles = patient.PresenceOfFreckles;
+                newVisit.ObligateFormsOfPrecancer = patient.ObligateFormsOfPrecancer;
+                newVisit.HormonalChanges = patient.HormonalChanges;
+                newVisit.burns = patient.burns;
+                newVisit.immuneSystemDiseases = patient.immuneSystemDiseases;
+                newVisit.ageGroup = patient.ageGroup;
+                newVisit.skinType = patient.skinType;
+                newVisit.eyeType = patient.eyeType;
+                newVisit.hairType = patient.hairType;
+                newVisit.hormonalChangesNew = patient.hormonalChangesNew;
+                newVisit.geneticAbnormalitiesInChromosomes = patient.geneticAbnormalitiesInChromosomes;
+                newVisit.melanoma = patient.melanoma;
+                newVisit.compoundMelonoma = patient.compoundMelonoma;
+                newVisit.parents = patient.parents;
+                newVisit.simba = patient.simba;
+                newVisit.relatives = patient.relatives;
+                newVisit.numberOfMoles = patient.numberOfMoles;
+                newVisit.nevus = patient.nevus;
+                newVisit.birthmarks = patient.birthmarks;
+                newVisit.uf = patient.uf;
+                newVisit.immuneSystem = patient.immuneSystem;
+                newVisit.XerodermaPigmentosum = patient.XerodermaPigmentosum;
+                
                 _context.Add(patient);
+                newVisit.patientID = patient.id;
+                _context.Add(newVisit);
                 await _context.SaveChangesAsync();
+                
+                Debug.WriteLine(patient.id.ToString());
+                Debug.WriteLine(newVisit.patientID);
                 return RedirectToAction(nameof(Index));
             }
             return View(patient);

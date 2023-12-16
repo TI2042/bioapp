@@ -30,6 +30,7 @@ namespace BioApp.Data
         public DbSet<BioApp.Models.AnalysisMarkerData> AnalysisMarkerData { get; set; }
         public DbSet<BioApp.Models.CommonAnalysis> CommonAnalysis { get; set; }
         public DbSet<BioApp.Models.MKBClassifier> MKBClassifier { get; set; }
+        public DbSet<BioApp.Models.PatientVisits> PatientVisits { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -49,6 +50,7 @@ namespace BioApp.Data
             modelBuilder.Entity<AnalysisMarkerNormValue>().ToTable("AnalysisMarkerNormValue");
             modelBuilder.Entity<AnalysisMarkerData>().ToTable("AnalysisMarkerData");
             modelBuilder.Entity<MKBClassifier>().ToTable("MKBClassifier");
+            modelBuilder.Entity<PatientVisits>().ToTable("PatientVisits");
 
 
 

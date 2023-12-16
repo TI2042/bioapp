@@ -4,14 +4,16 @@ using BioApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BioApp.Migrations
 {
     [DbContext(typeof(BioContext))]
-    partial class BioContextModelSnapshot : ModelSnapshot
+    [Migration("20231214072405_patient_visit_0_1_4")]
+    partial class patient_visit_0_1_4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -656,8 +658,8 @@ namespace BioApp.Migrations
                     b.Property<string>("passportNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("patientID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("patientID")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("previousMelanoma")
                         .HasColumnType("bit");

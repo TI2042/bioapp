@@ -4,19 +4,21 @@ using BioApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BioApp.Migrations
 {
     [DbContext(typeof(BioContext))]
-    partial class BioContextModelSnapshot : ModelSnapshot
+    [Migration("20231212074147_add_patient_visits")]
+    partial class add_patient_visits
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.17")
+                .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("BioApp.Models.Analysis", b =>
@@ -416,9 +418,6 @@ namespace BioApp.Migrations
                     b.Property<bool>("ObligateFormsOfPrecancer")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("PatientVisitsid")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("PlaceOfBirth")
                         .HasColumnType("nvarchar(max)");
 
@@ -528,8 +527,6 @@ namespace BioApp.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("id");
-
-                    b.HasIndex("PatientVisitsid");
 
                     b.ToTable("Patient");
                 });
@@ -656,7 +653,7 @@ namespace BioApp.Migrations
                     b.Property<string>("passportNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("patientID")
+                    b.Property<Guid?>("patientid")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("previousMelanoma")
@@ -684,6 +681,8 @@ namespace BioApp.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("id");
+
+                    b.HasIndex("patientid");
 
                     b.ToTable("PatientVisits");
                 });
@@ -1053,11 +1052,13 @@ namespace BioApp.Migrations
                     b.Navigation("parent");
                 });
 
-            modelBuilder.Entity("BioApp.Models.Patient", b =>
+            modelBuilder.Entity("BioApp.Models.PatientVisits", b =>
                 {
-                    b.HasOne("BioApp.Models.PatientVisits", null)
-                        .WithMany("Patients")
-                        .HasForeignKey("PatientVisitsid");
+                    b.HasOne("BioApp.Models.Patient", "patient")
+                        .WithMany()
+                        .HasForeignKey("patientid");
+
+                    b.Navigation("patient");
                 });
 
             modelBuilder.Entity("MKBClassifierPatient", b =>
@@ -1156,8 +1157,6 @@ namespace BioApp.Migrations
                     b.Navigation("files");
 
                     b.Navigation("MKBClassifiers");
-
-                    b.Navigation("Patients");
                 });
 #pragma warning restore 612, 618
         }

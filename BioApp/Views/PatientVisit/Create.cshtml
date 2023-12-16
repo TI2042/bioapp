@@ -1,14 +1,14 @@
-﻿@model BioApp.Models.Patient
+﻿@model BioApp.Models.PatientVisits
 
 @{
     ViewData["Title"] = "Create";
 
 }
 
-<h1>Персональные и клинические данные пациента</h1>
+<h1>Create</h1>
 
+<h4>PatientVisits  </h4>
 <hr />
-
 <button class="btn btn-primary" onclick="OpenCommonData()">Общие данные</button>
 <button class="btn btn-primary" onclick="OpenExogenousFactors()">Экзогенные факторы риска</button>
 <button class="btn btn-primary" onclick="OpenEndogenousFactors()">Эндогенные факторы риска</button>
@@ -19,6 +19,9 @@
         <div class="col" id="CommonData" style="display:block">
             <b>Общие данные</b>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="patientID" type="hidden" value="@Model.patientID" class="form-control" readonly />
+            </div>
             <div class="form-group">
                 <label asp-for="registrationDate" class="control-label"></label>
                 <input asp-for="registrationDate" type="date" class="form-control" />
@@ -52,7 +55,7 @@
                 <input asp-for="issuedByPassport" class="form-control" />
                 <span asp-validation-for="issuedByPassport" class="text-danger"></span>
             </div>
-            <div class="nav" >
+            <div class="nav">
                 <div class="form-group" style="flex: 1 0 auto">
                     <label asp-for="datePassport" class="control-label"></label>
                     <input asp-for="datePassport" type="date" class="form-control" />
@@ -135,7 +138,6 @@
             </div>
             <div class="form-group">
                 <label asp-for="skinType" class="control-label"></label>
-                <img alt="Qries" src="~/img/fitz6.png" background-color="inherit" width="70" height="70" />
                 <select asp-for="skinType" class="form-control" asp-items="@Html.GetEnumSelectList<SkinType>()"></select>
                 <span asp-validation-for="skinType" class="text-danger"></span>
             </div>
@@ -262,7 +264,7 @@
                     <div class="rectangle text_right">Светло-</div>
                     <div class="rectangle text_right">коричн.</div>
                 </a>
-                <a class="btn" asp-action="Create" asp-controller="Patients"style="background-color: white">
+                <a class="btn" asp-action="Create" asp-controller="Patients" style="background-color: white">
                     <img alt="Qries" src="~/img/hair3.png" background-color="inherit" width="80" height="110" />
                     <div class="rectangle text_right">3</div>
                     <div class="rectangle text_right">Средне-</div>
@@ -383,14 +385,18 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                <input type="submit" value="Сохранить" class="btn btn-primary" /> | <a asp-action="Index" class="btn btn-primary">Назад к списку</a>
+                <input type="submit" value="Сохранить" class="btn btn-primary" /> 
+                | 
+                <a asp-action="Index" asp-controller="PatientVisit" asp-route-PatientId="@Model.patientID" class="btn btn-primary">Назад к списку</a>
             </div>
         </div>
     </div>
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
 
 <script>
@@ -448,5 +454,11 @@
             ExogenousFactors.style.display = "none";
             CommonData.style.display = "none";
         }
+    }
+</script>
+
+<script>
+    function getURLParameter(name) {
+        return decodeURIComponent((RegExp(name + '=' + '(.+?)(&|$)').exec(location.search) || [, null])[1] || '');
     }
 </script>

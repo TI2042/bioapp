@@ -1,0 +1,106 @@
+﻿@model IEnumerable<BioApp.Models.PatientVisits>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Посещения </h1>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">ФИО:</label>
+    <div class="col-sm-4">
+
+        <br />
+    </div>
+</div>
+<div class="form-group row">
+    <div class="col-sm-4">
+        <input type="submit" value="Найти" class="btn btn-primary" />
+
+        <hr />
+    </div>
+</div>
+<p>
+    <a asp-action="Create" asp-route-patientId="@ViewBag.PatientId?.id" class="btn btn-primary">Добавить пациента</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.passportNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OMSNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.birthDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.registrationDate)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td width="230">
+                    <a asp-action="Edit" asp-route-id="@item.id" asp-route-PatientId="@item.patientID">
+                        <img alt="Qries" src="~/img/edit.png" background-color="inherit" width="30" height="30" />
+                    </a>
+                    <a asp-action="Create" asp-controller="PatientVisit" asp-route-PatientId="@item.id">
+                        <img alt="Qries" src="~/img/copy.png" background-color="inherit" width="30" height="30" />
+                    </a>
+                    <a asp-action="Index" asp-controller="CommonAnalysis" asp-route-PatientId="@item.patientID">
+                        <img alt="Qries" src="~/img/analysis.png" background-color="inherit" width="30" height="30" />
+                    </a>
+                    <a asp-action="Index" asp-controller="MKBClassifiers" asp-route-PatientId="@item.patientID">
+                        <img alt="Qries" src="~/img/diagnosis.png" background-color="inherit" width="30" height="30" />
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.id">
+                        <img alt="Qries" src="~/img/delete.png" background-color="inherit" width="30" height="30" />
+                    </a>
+
+                    @*<a asp-action="Index" asp-controller="CommonAnalysis" asp-route-PatientId="@item.id">Анализы</a> |
+                <a asp-action="Index" asp-controller="MKBClassifiers" asp-route-PatientId="@item.id">Диагнозы</a> |*@
+                    @*<a asp-action="Delete" asp-route-id="@item.id">Удалить</a>*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passportNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OMSNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.birthDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.registrationDate)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

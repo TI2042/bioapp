@@ -13,7 +13,7 @@ namespace BioApp.Data
             context.Database.EnsureCreated();
             if (context.FileTypes.Any() && context.Patients.Any() && context.Files.Any() && context.MelanomaTypes.Any()
                 && context.DoctorSpecializations.Any() && context.Doctor.Any() && context.Analysis.Any() && context.KITType.Any()
-                && context.KITMarker.Any() && context.PatientGroup.Any())
+                && context.KITMarker.Any() && context.PatientGroup.Any() && context.PatientVisits.Any())
             {
                 return;   // DB has been seeded
             }

@@ -130,22 +130,151 @@
             </div>
             <div class="form-group">
                 <label asp-for="skinType" class="control-label"></label>
-                <select asp-for="skinType" class="form-control" asp-items="@Html.GetEnumSelectList<SkinType>()"></select>
+                <select asp-for="skinType" id="SkinTypeSelectList" class="form-control" asp-items="@Html.GetEnumSelectList<SkinType>()"></select>
                 <span asp-validation-for="skinType" class="text-danger"></span>
             </div>
-            <img src="~/img/fitz.png" background-color="inherit" width="600" height="150" />
+
+            <div class="nav">
+                <a class="btn" onclick="OnSkinTypeClick(5)">
+                    <img alt="Qries" src="~/img/fitz6.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" onclick="OnSkinTypeClick(4)">
+                    <img alt="Qries" src="~/img/fitz5.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" onclick="OnSkinTypeClick(3)">
+                    <img alt="Qries" src="~/img/fitz4.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" onclick="OnSkinTypeClick(2)">
+                    <img alt="Qries" src="~/img/fitz3.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" onclick="OnSkinTypeClick(1)">
+                    <img alt="Qries" src="~/img/fitz2.png" background-color="inherit" width="70" height="70" />
+                </a>
+                <a class="btn" onclick="OnSkinTypeClick(0)">
+                    <img alt="Qries" src="~/img/fitz1.png" background-color="inherit" width="70" height="70" />
+                </a>
+            </div>
+
             <div class="form-group">
                 <label asp-for="eyeType" class="control-label"></label>
-                <select asp-for="eyeType" class="form-control" asp-items="@Html.GetEnumSelectList<EyeType>()"></select>
+                <select asp-for="eyeType" id="EyeTypeSelectList" class="form-control" asp-items="@Html.GetEnumSelectList<EyeType>()"></select>
                 <span asp-validation-for="eyeType" class="text-danger"></span>
             </div>
-            <img src="~/img/eye.png" background-color="inherit" width="600" height="450" />
+
+            <b>I тип. Темный.</b>
+            <div class="nav">
+                <a class="btn" onclick="OnEyeTypeClick(0)">
+                    <img alt="Qries" src="~/img/eye1.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(1)">
+                    <img alt="Qries" src="~/img/eye2.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(2)">
+                    <img alt="Qries" src="~/img/eye3.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(3)">
+                    <img alt="Qries" src="~/img/eye4.png" background-color="inherit" width="140" height="110" />
+                </a>
+            </div>
+            <b>II тип. Смешанный.</b>
+            <div class="nav">
+                <a class="btn" onclick="OnEyeTypeClick(4)">
+                    <img alt="Qries" src="~/img/eye5.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(5)">
+                    <img alt="Qries" src="~/img/eye6.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(6)">
+                    <img alt="Qries" src="~/img/eye7.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(7)">
+                    <img alt="Qries" src="~/img/eye8.png" background-color="inherit" width="140" height="110" />
+                </a>
+            </div>
+            <b>III тип. Светлый.</b>
+            <div class="nav">
+                <a class="btn" onclick="OnEyeTypeClick(8)">
+                    <img alt="Qries" src="~/img/eye9.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(9)">
+                    <img alt="Qries" src="~/img/eye10.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(10)">
+                    <img alt="Qries" src="~/img/eye11.png" background-color="inherit" width="140" height="110" />
+                </a>
+                <a class="btn" onclick="OnEyeTypeClick(11)">
+                    <img alt="Qries" src="~/img/eye12.png" background-color="inherit" width="140" height="110" />
+                </a>
+            </div>
             <div class="form-group">
                 <label asp-for="hairType" class="control-label"></label>
-                <select asp-for="hairType" class="form-control" asp-items="@Html.GetEnumSelectList<HairType>()"></select>
+                <select asp-for="hairType" id="HairTypeSelectList" class="form-control" asp-items="@Html.GetEnumSelectList<HairType>()"></select>
                 <span asp-validation-for="hairType" class="text-danger"></span>
             </div>
-            <img src="~/img/hair.png" background-color="inherit" width="600" height="150" />
+
+            <div class="nav">
+                <a class="btn" onclick="OnHairTypeClick(0)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair10.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">10</div>
+                    <div class="rectangle text_right">Платин,</div>
+                    <div class="rectangle text_right">блондин</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(1)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair9.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">9</div>
+                    <div class="rectangle text_right">Яркий</div>
+                    <div class="rectangle text_right">блондин</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(2)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair8.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">8</div>
+                    <div class="rectangle text_right">Блондин</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(3)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair7.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">7</div>
+                    <div class="rectangle text_right">Светло-</div>
+                    <div class="rectangle text_right">русый</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(4)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair6.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">6</div>
+                    <div class="rectangle text_right">Средне-</div>
+                    <div class="rectangle text_right">русый</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(5)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair5.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">5</div>
+                    <div class="rectangle text_right">Темно-</div>
+                    <div class="rectangle text_right">русый</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(6)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair4.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">4</div>
+                    <div class="rectangle text_right">Светло-</div>
+                    <div class="rectangle text_right">коричн.</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(7)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair3.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">3</div>
+                    <div class="rectangle text_right">Средне-</div>
+                    <div class="rectangle text_right">коричн.</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(8)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair2.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">2</div>
+                    <div class="rectangle text_right">Темно-</div>
+                    <div class="rectangle text_right">коричн.</div>
+                </a>
+                <a class="btn" onclick="OnHairTypeClick(9)" style="background-color: white">
+                    <img alt="Qries" src="~/img/hair1.png" background-color="inherit" width="80" height="110" />
+                    <div class="rectangle text_right">1</div>
+                    <div class="rectangle text_right">Черный</div>
+                    <div class="rectangle text_right"></div>
+                </a>
+            </div>
+
+
             <div class="form-group">
                 <label asp-for="previousMelanoma" class="control-label"></label>
                 <input type="checkbox" asp-for="previousMelanoma" class="form-control" />
@@ -165,17 +294,6 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="HormonalChanges" class="control-label"></label>
-                <input type="checkbox" asp-for="HormonalChanges" class="form-control" />
-                <span asp-validation-for="HormonalChanges" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="ObligateFormsOfPrecancer" class="control-label"></label>
-                <input type="checkbox" asp-for="ObligateFormsOfPrecancer" class="form-control" />
-                <span asp-validation-for="ObligateFormsOfPrecancer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="nevusType" class="control-label"></label>
                 <select asp-for="nevusType" class="form-control" asp-items="@Html.GetEnumSelectList<NevusType>()"></select>
                 <span asp-validation-for="nevusType" class="text-danger"></span>
@@ -187,8 +305,28 @@
             </div>
             <div class="form-group">
                 <label asp-for="geneticAbnormalitiesInChromosomes" class="control-label"></label>
-                <select asp-for="geneticAbnormalitiesInChromosomes" class="form-control" asp-items="@Html.GetEnumSelectList<GeneticAbnormalitiesInChromosomes>()"></select>
+                <select asp-for="geneticAbnormalitiesInChromosomes" id="Chromosomes" class="form-control" asp-items="@Html.GetEnumSelectList<GeneticAbnormalitiesInChromosomes>()"></select>
                 <span asp-validation-for="geneticAbnormalitiesInChromosomes" class="text-danger"></span>
+            </div>
+            <div class="nav" style="margin-bottom: 20px">
+                <a class="btn" onclick="OnGeneticAbnormalitiesInChromosomesClick(0)" style="background-color: white; margin-right:20px;">
+                    <img alt="Qries" src="~/img/Chromosomes1.png" background-color="inherit" width="80" height="80" />
+                </a>
+                <a class="btn" onclick="OnGeneticAbnormalitiesInChromosomesClick(1)" style="background-color: white; margin-right: 20px;">
+                    <img alt="Qries" src="~/img/Chromosomes6.png" background-color="inherit" width="80" height="80" />
+                </a>
+                <a class="btn" onclick="OnGeneticAbnormalitiesInChromosomesClick(2)" style="background-color: white; margin-right: 20px;">
+                    <img alt="Qries" src="~/img/Chromosomes7.png" background-color="inherit" width="80" height="80" />
+                </a>
+                <a class="btn" onclick="OnGeneticAbnormalitiesInChromosomesClick(3)" style="background-color: white; margin-right: 20px;">
+                    <img alt="Qries" src="~/img/Chromosomes9.png" background-color="inherit" width="80" height="80" />
+                </a>
+                <a class="btn" onclick="OnGeneticAbnormalitiesInChromosomesClick(4)" style="background-color: white; margin-right: 20px;">
+                    <img alt="Qries" src="~/img/Chromosomes10.png" background-color="inherit" width="80" height="80" />
+                </a>
+                <a class="btn" onclick="OnGeneticAbnormalitiesInChromosomesClick(5)" style="background-color: white; margin-right: 20px; ">
+                    <img alt="Qries" src="~/img/Chromosomes11.png" background-color="inherit" width="80" height="80" />
+                </a>
             </div>
         </div>
 
@@ -266,17 +404,18 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}<script>
-     function OpenCommonData() {
-         var CommonData = document.getElementById("CommonData");
-         var ExogenousFactors = document.getElementById("ExogenousFactors");
-         var EndogenousFactors = document.getElementById("EndogenousFactors");
-         if ((window.getComputedStyle(CommonData).display === "none") && ((window.getComputedStyle(ExogenousFactors).display === "block") || (window.getComputedStyle(EndogenousFactors).display === "block"))) {
-             CommonData.style.display = "block";
-             ExogenousFactors.style.display = "none";
-             EndogenousFactors.style.display = "none";
-         }
-     }
+}
+<script>
+    function OpenCommonData() {
+        var CommonData = document.getElementById("CommonData");
+        var ExogenousFactors = document.getElementById("ExogenousFactors");
+        var EndogenousFactors = document.getElementById("EndogenousFactors");
+        if ((window.getComputedStyle(CommonData).display === "none") && ((window.getComputedStyle(ExogenousFactors).display === "block") || (window.getComputedStyle(EndogenousFactors).display === "block"))) {
+            CommonData.style.display = "block";
+            ExogenousFactors.style.display = "none";
+            EndogenousFactors.style.display = "none";
+        }
+    }
 </script>
 
 <script>
@@ -321,5 +460,33 @@
             ExogenousFactors.style.display = "none";
             CommonData.style.display = "none";
         }
+    }
+</script>
+
+<script>
+    function OnSkinTypeClick(index) {
+        var SkinTypeSelectList = document.getElementById("SkinTypeSelectList");
+        SkinTypeSelectList.options[index].selected = true;
+    }
+</script>
+
+<script>
+    function OnEyeTypeClick(index) {
+        var EyeTypelectList = document.getElementById("EyeTypeSelectList");
+        EyeTypelectList.options[index].selected = true;
+    }
+</script>
+
+<script>
+    function OnHairTypeClick(index) {
+        var HairTypelectList = document.getElementById("HairTypeSelectList");
+        HairTypelectList.options[index].selected = true;
+    }
+</script>
+
+<script>
+    function OnGeneticAbnormalitiesInChromosomesClick(index) {
+        var Chromosomes = document.getElementById("Chromosomes");
+        Chromosomes.options[index].selected = true;
     }
 </script>

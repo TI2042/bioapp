@@ -24,13 +24,17 @@ namespace BioApp.Controllers
         }
 
         // GET: Patients
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(String name)
         {
+            if (!String.IsNullOrEmpty(name))
+            {
+                return View(await _context.Patients.Where(x => x.name == name).ToListAsync());
+            }
             return View(await _context.Patients.ToListAsync());
         }
-        public async Task<IActionResult> Index2()
+        public async Task<IActionResult> Index2(String name)
         {
-            return View(await _context.Patients.ToListAsync());
+            return View(await _context.Patients.Where(x => x.name == name).ToListAsync());
         }
         public async Task<IActionResult> Metrics()
         {
@@ -184,7 +188,7 @@ namespace BioApp.Controllers
                 _context.Add(newVisit);
                 await _context.SaveChangesAsync();
                 
-                Debug.WriteLine(patient.id.ToString());
+                Debug.WriteLine(patient.skinType);
                 Debug.WriteLine(newVisit.patientID);
                 return RedirectToAction(nameof(Index));
             }

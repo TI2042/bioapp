@@ -6,20 +6,15 @@
 
 <h1>Список пациентов</h1>
 
-<div class="form-group row">
-    <label class="col-sm-2 col-form-label">ФИО:</label>
-    <div class="col-sm-4">
-
-        <br />
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Поиск по ФИО: <input type="text" name="name" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-action="Index">К полному списку</a>
+        </p>
     </div>
-</div>
-<div class="form-group row">
-    <div class="col-sm-4">
-        <input type="submit" value="Найти" class="btn btn-primary" />
-
-        <hr />
-    </div>
-</div>
+</form>
 <p>
     <a asp-action="Create" class="btn btn-primary">Добавить пациента</a>
 </p>

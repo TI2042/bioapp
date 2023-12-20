@@ -92,7 +92,7 @@ namespace BioApp.Data
             context.SaveChanges();
             #endregion
             #region fillPatients
-            var patients = new Patient[]
+            /*var patients = new Patient[]
             {
                 new Patient{ name="Ivan Ivanovich Ivanov",INN="12345678912", OMSNumber="1234567890123456", gender=Gender.Male, birthDate=DateTime.Parse("1992-10-03"),
                 passportNumber="443322",registrationDate=DateTime.Parse("2020-12-21")},
@@ -104,11 +104,11 @@ namespace BioApp.Data
             foreach (Patient p in patients)
             {
                 context.Patients.Add(p);
-            }
+            }*/
             context.SaveChanges();
             #endregion
             #region fillFiles
-            var files = new BioFile[]
+            /*var files = new BioFile[]
             {
                 new BioFile{ name="Passport", createDate=DateTime.Parse("2005-09-01") , fileType = bioFileTypes[1] ,
                     path= "C:\\Files\\Patients\\Scans\\Pass00001.jpg", patient = patients[0]},
@@ -130,11 +130,11 @@ namespace BioApp.Data
             foreach (BioFile f in files)
             {
                 context.Files.Add(f);
-            }
+            }*/
             context.SaveChanges();
             #endregion
             #region Analisis
-            var analises = new Analysis[]
+           /* var analises = new Analysis[]
            {
                 new Analysis{ patient = patients[0] , bioSample = Biosample.Biopsy, DateOfAnalysis = DateTime.Now,
                  DateOfBiosampleCollecting = DateTime.Parse("2005-09-01"), doctor = doctors[0], earlyMetastasis= true,
@@ -156,11 +156,11 @@ namespace BioApp.Data
             foreach (Analysis a in analises)
             {
                 context.Analysis.Add(a);
-            }
+            }*/
             context.SaveChanges();
             #endregion
             #region KITMakers
-            var KITMakers = new KITMarker[]
+            /*var KITMakers = new KITMarker[]
             {
                 new KITMarker{ name = "BRAF-V600E", analysis= analises[0], absent = true, heterozygosity = true, homozygosity = true, NA= true,
                     description= "In skin melanoma the mutations are observed in the genes BRAF (50 %), NRAS (20 %), and the mutations of NRAS are characteristics for melanoma of sun - exposed sites.Activated mutations of BRAF are observed in 30–60 % cases of melanoma skin(Thomaset al., 2015, Omholt et al., 2003).The mutations of BRAF are founded in 59 % cases of melanoma skin, that is not chronicsun - damaged, whereas chronic sun - damaged melanoma – 11 % m acral melanoma –23 %, nucosal melanoma – 11 % (Davies M.A., Samuels Y. 2010.Analysis of the genometo personalize therapy for melanoma.Oncogene 29(41): 5545–5555).It is important that mutations of the gene BRAF is founded in 70 % cases of nonpigmented melanoma, and in 89 % cases the tumor has thickness less than 1 mm.Patients with melanoma and mutations of the gene BRAF are statistically younger thanthe patients have mutations of the gene NRAS.Known important mutations of the gene: V600E / V600К(exon 15).",
@@ -181,7 +181,7 @@ namespace BioApp.Data
             foreach (KITMarker kitmar in KITMakers)
             {
                 context.KITMarker.Add(kitmar);
-            }
+            }*/
             context.SaveChanges();
             #endregion
             #region PatientGroup

@@ -146,6 +146,8 @@ namespace BioApp.Controllers
                 newVisit.seriaPassport = patient.seriaPassport;
                 newVisit.numberPassport = patient.numberPassport;
                 newVisit.issuedByPassport = patient.issuedByPassport;
+                newVisit.IdNumber = patient.IdNumber;
+                newVisit.OMSNumber = patient.OMSNumber;
                 newVisit.datePassport = patient.datePassport;
                 newVisit.kodPassport = patient.kodPassport;
                 newVisit.SNILS = patient.SNILS;
